@@ -42,8 +42,11 @@ ninja.data = [{
           section: "News",},{id: "news-i-finally-made-a-website-smile",
           title: 'I finally made a website! :smile:',
           description: "",
-          section: "News",},{id: "news-i-was-invited-to-the-1st-international-workshop-on-video-surveillance-systems-in-smart-cities-i-will-be-presenting-my-most-recent-paper-in-wacv-in-a-quick-10-min-presentation",
+          section: "News",},{id: "news-i-was-invited-to-the-1st-international-workshop-on-video-surveillance-systems-in-smart-cities-i-will-be-presenting-my-most-recent-paper-in-wacv",
           title: 'I was invited to the 1st International Workshop on Video Surveillance Systems in...',
+          description: "",
+          section: "News",},{id: "news-our-paper-automated-c-arm-positioning-via-conformal-landmark-localization-got-accepted-at-the-workshop-on-advanced-perception-for-autonomous-healthcare-apah-at-iccv",
+          title: 'Our paper “Automated C-Arm Positioning via Conformal Landmark Localization” got accepted at the...',
           description: "",
           section: "News",},{
         id: 'social-email',
