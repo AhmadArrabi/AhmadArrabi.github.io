@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I was invited to the [1st International Workshop on Video Surveillance Systems in Smart Cities](https://sites.google.com/view/v3sc/home?authuser=0)! I will be presenting my most recent paper in WACV in a quick 10-min presentation!
+I was invited to the [1st International Workshop on Video Surveillance Systems in Smart Cities](https://sites.google.com/view/v3sc/home?authuser=0)! I will be presenting my most recent paper in WACV!
