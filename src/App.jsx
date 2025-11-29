@@ -234,7 +234,7 @@ const EXPERIENCES = [
     desc: (
       <div className="space-y-4 text-base">
         <p>
-          I research <b>generative models</b> and <b>applied deep learning</b>, managing the full lifecycle from ideation to complete implementaion. My work has recently pivoted towards <b>medical interventions</b> particularly in autonomous C-arm control.
+          Carried out research in <b>generative models</b> and <b>applied deep learning</b>, managing full projects lifecycles from ideation to complete implementaion. My work has recently pivoted towards <b>medical interventions</b> particularly in autonomous C-arm control.
         </p>
         <ul className="list-disc list-outside ml-4 space-y-2 marker:text-violet-900 dark:marker:text-violet-400">
           <li>
@@ -244,7 +244,7 @@ const EXPERIENCES = [
             <b>High-Volume Experimentation:</b> I maintain a rigorous experimental workflow, running an average of <b>5-10 experiments per week</b>. I have extensive experience managing jobs and resources on <b>HPC clusters using Slurm</b>.
           </li>
           <li>
-            <b>End-to-End Research:</b> I start projects from scratch—taking raw ideas, formulating them into research problems, and executing them into fully functioning papers and open-source projects.
+            <b>End-to-End Research:</b> I start projects from scratch, taking raw ideas and formulating them into research problems, ultimately leading execution into fully functioning open-source projects and papers.
           </li>
           <li>
             <b>Academic Leadership:</b> Assisted advisor in <b>grant writing</b> and actively contribute to the community as a reviewer for top-tier venues.
