@@ -123,12 +123,12 @@ const USER_DATA = {
   location: "Burlington, VT",
   bio: (
     <span>
-      I am a 3rd year computer science Ph.D. student at the <a href="https://myuvm.uvm.edu/" target="_blank" rel="noreferrer" className="font-semibold text-violet-900 dark:text-violet-300 hover:underline">University of Vermont</a>, working with <a href="https://www.wshahaigroup.com/" target="_blank" rel="noreferrer" className="font-semibold text-violet-900 dark:text-violet-300 hover:underline">Prof. Safwan Wshah</a>. My research interest is in <b>generative models</b> and <b>computer assisted interventions</b>; I also worked on <b>cross-view synthesis</b>.
+      I am a 3rd year computer science Ph.D. student at the <a href="https://myuvm.uvm.edu/" target="_blank" rel="noreferrer" className="font-semibold text-violet-900 dark:text-violet-300 hover:underline">University of Vermont</a>, working with <a href="https://www.wshahaigroup.com/" target="_blank" rel="noreferrer" className="font-semibold text-violet-900 dark:text-violet-300 hover:underline">Prof. Safwan Wshah</a>. My research interest is in <b>generative models</b>, <b>cross-view synthesis</b>, and <b>computer assisted interventions</b>.
     </span>
   ),
   bio_secondary: (
     <span>
-      Right now I’m focusing on <b>multi-modal diffusion models</b>, finding ways to allow <b>joint generation</b> instead of the traditional conditional unimodal methods, e.g., text conditioning. At the same time, I’m working on medical imaging applications, particularly in <b>computer assisted interventions</b>. This field caught my attention recently and got me hooked on optimizing fluoroscopy control, which is used in different kinds of interventions like mechanical thrombectomy to treat strokes.
+      Right now I’m focusing on <b>multi-modal diffusion models</b>, finding ways to allow <b>unconditional joint generation</b> instead of the traditional conditional unimodal methods like text conditioning. At the same time, I’m working on medical imaging applications, particularly in <b>computer assisted interventions</b>. I got hooked on optimizing fluoroscopy control and autonomously guiding C-arms and biplanes, mainly for neurointerventions.
     </span>
   ),
   links: {
@@ -145,11 +145,11 @@ const USER_DATA = {
 
 const RESEARCH_INTERESTS = [
   "Generative Models",
-  "Multi-Modal Diffusion",
   "Computer Assisted Interventions",
   "Medical Imaging",
+  "Multi-Modal Diffusion",
   "Cross-View Synthesis",
-  "Deep Learning"
+  "Deep Learning Applications"
 ];
 
 const NEWS = [
@@ -234,14 +234,14 @@ const EXPERIENCES = [
     desc: (
       <div className="space-y-4 text-base">
         <p>
-          I drive research initiatives in <b>generative models</b> and <b>applied deep learning</b>, managing the full lifecycle from ideation to publication. My work has recently pivoted towards providing tangible <b>clinical value</b> in medical interventions.
+          I research <b>generative models</b> and <b>applied deep learning</b>, managing the full lifecycle from ideation to complete implementaion. My work has recently pivoted towards <b>medical interventions</b> particularly in autonomous C-arm control.
         </p>
         <ul className="list-disc list-outside ml-4 space-y-2 marker:text-violet-900 dark:marker:text-violet-400">
           <li>
-            <b>Interdisciplinary Collaboration:</b> Partnered with clinical experts from the <b>Cleveland Clinic</b> to develop computer-assisted intervention systems, bridging the gap between deep learning and clinical need.
+            <b>Interdisciplinary Collaboration:</b> Worked with experts from the <b>Cleveland Clinic</b> to develop computer-assisted intervention <i>in vivo</i> systems, bridging the gap between deep learning and clinical need.
           </li>
           <li>
-            <b>High-Volume Experimentation:</b> I maintain a rigorous experimental workflow, running an average of <b>10 experiments per week</b>. I have extensive experience managing jobs and resources on <b>HPC clusters using Slurm</b>.
+            <b>High-Volume Experimentation:</b> I maintain a rigorous experimental workflow, running an average of <b>5-10 experiments per week</b>. I have extensive experience managing jobs and resources on <b>HPC clusters using Slurm</b>.
           </li>
           <li>
             <b>End-to-End Research:</b> I start projects from scratch—taking raw ideas, formulating them into research problems, and executing them into fully functioning papers and open-source projects.
@@ -265,7 +265,7 @@ const EXPERIENCES = [
         </p>
         <ul className="list-disc list-outside ml-4 space-y-1 marker:text-violet-900 dark:marker:text-violet-400">
             <li>Developed <b>Reinforcement Learning</b> agents for autonomous parking systems.</li>
-            <li>Executed full <b>Sim2Real transfer</b>: Validated policies in simulation and successfully deployed them on physical hardware using <b>NVIDIA Jetson Nano</b>.</li>
+            <li>Executed full <b>Sim2Real transfer</b>: Validated policies in simulation and successfully deployed them on physical hardware using NVIDIA Jetson Nano.</li>
         </ul>
       </div>
     )
