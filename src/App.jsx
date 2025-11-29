@@ -230,7 +230,7 @@ const EXPERIENCES = [
     id: 1,
     role: "Graduate Research Assistant",
     org: "University of Vermont",
-    period: "2022 - Present",
+    period: "2023 - Present",
     desc: (
       <div className="space-y-4 text-base">
         <p>
