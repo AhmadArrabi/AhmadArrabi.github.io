@@ -309,7 +309,7 @@ const GALLERY_ITEMS = [
   {
     id: 3,
     category: "Artwork",
-    title: "Reema and Hussein",
+    title: "Overstepping is allowed",
     desc: "The best two software engineers in the MENA region!",
     color: "bg-emerald-100 dark:bg-emerald-900/30",
     interactive: true,
