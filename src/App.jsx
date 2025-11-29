@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Moon, Sun, MapPin, Mail, Github, Linkedin, 
+  MapPin, Mail, Github, Linkedin, 
   FileText, GraduationCap, Link as LinkIcon, 
   Menu, X, ExternalLink, Code, Database, 
   ChevronRight, Award, BookOpen, Layers, Image as ImageIcon,
@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 // --- VISUALIZATION COMPONENT: LOSS LANDSCAPE ---
-const LossLandscapeBackground = ({ darkMode }) => {
+const LossLandscapeBackground = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -28,8 +28,8 @@ const LossLandscapeBackground = ({ darkMode }) => {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Much more transparent lines for readability
-      ctx.strokeStyle = darkMode ? 'rgba(139, 92, 246, 0.08)' : 'rgba(76, 29, 149, 0.04)'; 
+      // Fixed Light Mode Color (Transparent Violet)
+      ctx.strokeStyle = 'rgba(76, 29, 149, 0.04)'; 
       ctx.lineWidth = 1;
 
       const width = canvas.width;
@@ -103,7 +103,7 @@ const LossLandscapeBackground = ({ darkMode }) => {
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [darkMode]);
+  }, []);
 
   return (
     <canvas 
@@ -123,7 +123,7 @@ const USER_DATA = {
   location: "Burlington, VT",
   bio: (
     <span>
-      I am a 3rd year computer science Ph.D. student at the <a href="https://myuvm.uvm.edu/" target="_blank" rel="noreferrer" className="font-semibold text-violet-900 dark:text-violet-300 hover:underline">University of Vermont</a>, working with <a href="https://www.wshahaigroup.com/" target="_blank" rel="noreferrer" className="font-semibold text-violet-900 dark:text-violet-300 hover:underline">Prof. Safwan Wshah</a>. My research interest is in <b>generative models</b>, <b>cross-view synthesis</b>, and <b>computer assisted interventions</b>.
+      I am a 3rd year computer science Ph.D. student at the <a href="https://myuvm.uvm.edu/" target="_blank" rel="noreferrer" className="font-semibold text-violet-900 hover:underline">University of Vermont</a>, working with <a href="https://www.wshahaigroup.com/" target="_blank" rel="noreferrer" className="font-semibold text-violet-900 hover:underline">Prof. Safwan Wshah</a>. My research interest is in <b>generative models</b>, <b>cross-view synthesis</b>, and <b>computer assisted interventions</b>.
     </span>
   ),
   bio_secondary: (
@@ -153,13 +153,13 @@ const RESEARCH_INTERESTS = [
 ];
 
 const NEWS = [
-  { date: "Nov 19, 2024", text: <span>I attended <a href="https://rise-miccai.org/event/ws2025/" target="_blank" rel="noreferrer" className="text-violet-900 dark:text-violet-300 hover:underline font-bold">RISE-MICCAI Winter School 2025</a>.</span> },
-  { date: "Oct 19, 2025", text: <span>Our paper "Automated C-Arm Positioning via Conformal Landmark Localization" got accepted at the <a href="#" className="text-violet-900 dark:text-violet-300 hover:underline font-bold">Workshop on Advanced Perception for Autonomous Healthcare (APAH)</a> at ICCV!</span> },
+  { date: "Nov 19, 2024", text: <span>I attended <a href="https://rise-miccai.org/event/ws2025/" target="_blank" rel="noreferrer" className="text-violet-900 hover:underline font-bold">RISE-MICCAI Winter School 2025</a>.</span> },
+  { date: "Oct 19, 2025", text: <span>Our paper "Automated C-Arm Positioning via Conformal Landmark Localization" got accepted at the <a href="#" className="text-violet-900 hover:underline font-bold">Workshop on Advanced Perception for Autonomous Healthcare (APAH)</a> at ICCV!</span> },
   { date: "Sep 15, 2025", text: "I passed my qualifying exams!" },
-  { date: "Feb 22, 2025", text: <span>I was invited to the <a href="#" className="text-violet-900 dark:text-violet-300 hover:underline font-bold">1st International Workshop on Video Surveillance Systems in Smart Cities!</a> I will be presenting my most recent paper in WACV!</span> },
-  { date: "Jan 02, 2025", text: <span>We got a paper accepted in <a href="#" className="text-violet-900 dark:text-violet-300 hover:underline font-bold">ISBI 2025!</a></span> },
-  { date: "Dec 17, 2024", text: <span>Our lab will be leading a tutorial session on <a href="#" className="text-violet-900 dark:text-violet-300 hover:underline font-bold">cross-view geolocalization at WACV 2025!</a> Join us!</span> },
-  { date: "Nov 04, 2024", text: <span>We got a paper accepted in <a href="#" className="text-violet-900 dark:text-violet-300 hover:underline font-bold">WACV 2025!</a></span> }
+  { date: "Feb 22, 2025", text: <span>I was invited to the <a href="#" className="text-violet-900 hover:underline font-bold">1st International Workshop on Video Surveillance Systems in Smart Cities!</a> I will be presenting my most recent paper in WACV!</span> },
+  { date: "Jan 02, 2025", text: <span>We got a paper accepted in <a href="#" className="text-violet-900 hover:underline font-bold">ISBI 2025!</a></span> },
+  { date: "Dec 17, 2024", text: <span>Our lab will be leading a tutorial session on <a href="#" className="text-violet-900 hover:underline font-bold">cross-view geolocalization at WACV 2025!</a> Join us!</span> },
+  { date: "Nov 04, 2024", text: <span>We got a paper accepted in <a href="#" className="text-violet-900 hover:underline font-bold">WACV 2025!</a></span> }
 ];
 
 const PUBLICATIONS = [
@@ -170,7 +170,7 @@ const PUBLICATIONS = [
     authors: "A. Arrabi*, X. Zhang*, W. Sultani, C. Chen, S. Wshah",
     venue: "WACV 2025",
     year: "2025",
-    teaserColor: "bg-purple-100 dark:bg-purple-900/30",
+    teaserColor: "bg-purple-100",
     abstract: "A novel framework integrating geometry and text guidance into diffusion models for high-fidelity aerial image synthesis from cross-view inputs.",
     links: { 
       pdf: "https://openaccess.thecvf.com/content/WACV2025/html/Arrabi_Cross-View_Meets_Diffusion_Aerial_Image_Synthesis_with_Geometry_and_Text_WACV_2025_paper.html", 
@@ -187,7 +187,7 @@ const PUBLICATIONS = [
     authors: "A. Arrabi, J. H. Jung, J. Luo, N. Franssen, S. Raymond, S. Wshah",
     venue: "ICCV Workshops 2025",
     year: "2025",
-    teaserColor: "bg-indigo-100 dark:bg-indigo-900/30",
+    teaserColor: "bg-indigo-100",
     abstract: "Proposing a conformal landmark localization framework for automated C-Arm positioning to assist in medical interventions with uncertainty quantification.",
     links: { 
       code: "https://github.com/AhmadArrabi/C_arm_guidance_APAH",
@@ -202,7 +202,7 @@ const PUBLICATIONS = [
     authors: "A. Arrabi*, J. H. Jung*, J. Le, A. H. Nguyen, J. Reed, E. Stahl, N. T. Franssen, S. B. Raymond, S. Wshah",
     venue: "ISBI 2025",
     year: "2025",
-    teaserColor: "bg-teal-100 dark:bg-teal-900/30",
+    teaserColor: "bg-teal-100",
     abstract: "A self-supervised learning approach for automated C-Arm positioning during stroke thrombectomy, significantly reducing radiation exposure.",
     links: { 
       code: "https://github.com/AhmadArrabi/C_arm_guidance",
@@ -217,7 +217,7 @@ const PUBLICATIONS = [
     authors: "A. Al-Mousa, A. Arrabi, H. Daoud",
     venue: "IET Intelligent Transport Systems",
     year: "2025",
-    teaserColor: "bg-amber-100 dark:bg-amber-900/30",
+    teaserColor: "bg-amber-100",
     abstract: "A robust reinforcement learning system utilizing Proximal Policy Optimization for efficient and safe autonomous vehicle reverse parking.",
     links: { 
       pdf: "https://ietresearch.onlinelibrary.wiley.com/doi/pdf/10.1049/itr2.12614"
@@ -236,7 +236,7 @@ const EXPERIENCES = [
         <p>
           Carried out research in <b>generative models</b> and <b>applied deep learning</b>, managing full projects lifecycles from ideation to complete implementaion. My work has recently pivoted towards <b>medical interventions</b> particularly in autonomous C-arm control.
         </p>
-        <ul className="list-disc list-outside ml-4 space-y-2 marker:text-violet-900 dark:marker:text-violet-400">
+        <ul className="list-disc list-outside ml-4 space-y-2 marker:text-violet-900">
           <li>
             <b>Interdisciplinary Collaboration:</b> Worked with experts from the <b>Cleveland Clinic</b> to develop computer-assisted intervention <i>in vivo</i> systems, bridging the gap between deep learning and clinical need.
           </li>
@@ -263,7 +263,7 @@ const EXPERIENCES = [
         <p>
           Located in Amman, Jordan. Gained initial footing in research as an Undergraduate Researcher.
         </p>
-        <ul className="list-disc list-outside ml-4 space-y-1 marker:text-violet-900 dark:marker:text-violet-400">
+        <ul className="list-disc list-outside ml-4 space-y-1 marker:text-violet-900">
             <li>Developed <b>Reinforcement Learning</b> agents for autonomous parking systems.</li>
             <li>Executed full <b>Sim2Real transfer</b>: Validated policies in simulation and successfully deployed them on physical hardware using NVIDIA Jetson Nano.</li>
         </ul>
@@ -280,7 +280,7 @@ const GALLERY_ITEMS = [
     category: "Artwork",
     title: "My Face",
     desc: "Graduating with a smile",
-    color: "bg-indigo-100 dark:bg-indigo-900/30",
+    color: "bg-indigo-100",
     interactive: true,
     assets: {
       ref: "./assets/gallery/myface/condition.png",
@@ -296,7 +296,7 @@ const GALLERY_ITEMS = [
     category: "Artwork",
     title: "5 Km",
     desc: "Fall in Vermont",
-    color: "bg-rose-100 dark:bg-rose-900/30",
+    color: "bg-rose-100",
     interactive: true,
     assets: {
       ref: "./assets/gallery/5Km/condition.png",
@@ -311,7 +311,7 @@ const GALLERY_ITEMS = [
     category: "Artwork",
     title: "Overstepping is allowed",
     desc: "The best two software engineers in the MENA region!",
-    color: "bg-emerald-100 dark:bg-emerald-900/30",
+    color: "bg-emerald-100",
     interactive: true,
     assets: {
       ref: "./assets/gallery/reemaandhussein/condition.png",
@@ -326,7 +326,7 @@ const GALLERY_ITEMS = [
     category: "Artwork",
     title: "The Monument",
     desc: "A trip through history",
-    color: "bg-amber-100 dark:bg-amber-900/30",
+    color: "bg-amber-100",
     interactive: true,
     assets: {
       ref: "./assets/gallery/themonument/condition.png",
@@ -341,7 +341,7 @@ const GALLERY_ITEMS = [
     category: "Artwork",
     title: "Chopper",
     desc: "Tony Tony Copper, a legend",
-    color: "bg-cyan-100 dark:bg-cyan-900/30",
+    color: "bg-cyan-100",
     interactive: true,
     assets: {
       ref: "./assets/gallery/chopper/condition.png",
@@ -356,7 +356,7 @@ const GALLERY_ITEMS = [
     category: "Artwork", // Changed from Failure Cases per request
     title: "Where?",
     desc: "I removed some humans with some cheap blurring editing tool",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: true,
     assets: {
       ref: "./assets/gallery/where/condition.png",
@@ -371,7 +371,7 @@ const GALLERY_ITEMS = [
     category: "Artwork", // Changed from Failure Cases per request
     title: "Church Street",
     desc: "Downtown Burlington 29th November 2025 8:15:43 pm",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: true,
     assets: {
       ref: "./assets/gallery/churchstreet/condition.png",
@@ -386,7 +386,7 @@ const GALLERY_ITEMS = [
     category: "Artwork", // Changed from Failure Cases per request
     title: "Lava",
     desc: "Lava in north beach Hawaii",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: true,
     assets: {
       ref: "./assets/gallery/lava/condition.png",
@@ -401,7 +401,7 @@ const GALLERY_ITEMS = [
     category: "Artwork", // Changed from Failure Cases per request
     title: "Roots",
     desc: "Jamjoom",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: true,
     assets: {
       ref: "./assets/gallery/roots/condition.png",
@@ -416,7 +416,7 @@ const GALLERY_ITEMS = [
     category: "Artwork", // Changed from Failure Cases per request
     title: "Waterfront",
     desc: "Waterfront, downtown Burlington",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: true,
     assets: {
       ref: "./assets/gallery/waterfront/condition.png",
@@ -431,7 +431,7 @@ const GALLERY_ITEMS = [
     category: "Cool Generations",
     title: "Head Hunting",
     desc: "One of the many scary outputs when training a model on CelebA-HQ",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: false,
     asset: "./assets/gallery/cool/headhunting.png"
   },
@@ -440,7 +440,7 @@ const GALLERY_ITEMS = [
     category: "Cool Generations",
     title: "transcending",
     desc: "Cool looking face generated by mistake",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: false,
     asset: "./assets/gallery/cool/budda2.png"
   },
@@ -449,7 +449,7 @@ const GALLERY_ITEMS = [
     category: "Cool Generations",
     title: "transcending Forest",
     desc: "Forest spirit",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: false,
     asset: "./assets/gallery/cool/buddah.png"
   },
@@ -458,7 +458,7 @@ const GALLERY_ITEMS = [
     category: "Cool Generations",
     title: "Toy",
     desc: "Mixing chopper with humans",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: false,
     asset: "./assets/gallery/cool/chopper.png"
   },
@@ -467,7 +467,7 @@ const GALLERY_ITEMS = [
     category: "Cool Generations",
     title: "Alive Toy",
     desc: "Mixing chopper with humans wow",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: false,
     asset: "./assets/gallery/cool/chopper2.png"
   },
@@ -476,7 +476,7 @@ const GALLERY_ITEMS = [
     category: "Cool Generations",
     title: "Group Activity",
     desc: "Neurips",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: false,
     asset: "./assets/gallery/cool/group.png"
   },
@@ -485,7 +485,7 @@ const GALLERY_ITEMS = [
     category: "Cool Generations",
     title: "Ice",
     desc: "Mixing vermont snow with faces, icey",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: false,
     asset: "./assets/gallery/cool/ice1.png"
   },
@@ -494,7 +494,7 @@ const GALLERY_ITEMS = [
     category: "Cool Generations",
     title: "Icey",
     desc: "Mixing vermont snow with faces, oily",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: false,
     asset: "./assets/gallery/cool/ice2.png"
   },
@@ -503,7 +503,7 @@ const GALLERY_ITEMS = [
     category: "Cool Generations",
     title: "Beware",
     desc: "Inverse me",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: false,
     asset: "./assets/gallery/cool/beware.gif"
   },
@@ -512,7 +512,7 @@ const GALLERY_ITEMS = [
     category: "Cool Generations",
     title: "Stand Alone",
     desc: "Godsmack, Techno",
-    color: "bg-slate-200 dark:bg-slate-800",
+    color: "bg-slate-200",
     interactive: false,
     asset: "./assets/gallery/cool/stand.png"
   },
@@ -521,23 +521,23 @@ const GALLERY_ITEMS = [
 // --- COMPONENTS ---
 
 const SectionTitle = ({ children }) => (
-  <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-8 flex items-center gap-3">
-    <span className="w-1.5 h-8 bg-violet-900 dark:bg-violet-400 rounded-sm inline-block"></span>
+  <h2 className="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-3">
+    <span className="w-1.5 h-8 bg-violet-900 rounded-sm inline-block"></span>
     {children}
   </h2>
 );
 
 const Card = ({ children, className = "" }) => (
-  <div className={`bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm p-6 ${className}`}>
+  <div className={`bg-white/80 backdrop-blur-sm rounded-lg border border-slate-200 shadow-sm p-6 ${className}`}>
     {children}
   </div>
 );
 
 const Badge = ({ children, type = "default" }) => {
   const styles = {
-    default: "bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300",
-    primary: "bg-violet-100 text-violet-900 dark:bg-violet-900/30 dark:text-violet-300",
-    outline: "border border-slate-300 text-slate-600 dark:border-slate-600 dark:text-slate-400"
+    default: "bg-slate-100 text-slate-700",
+    primary: "bg-violet-100 text-violet-900",
+    outline: "border border-slate-300 text-slate-600"
   };
   return (
     <span className={`px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wide ${styles[type]}`}>
@@ -551,7 +551,6 @@ const Badge = ({ children, type = "default" }) => {
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
 
   // Contact Form State
   const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
@@ -562,24 +561,6 @@ export default function Portfolio() {
   const [artAlignment, setArtAlignment] = useState('medium');
   const [showReference, setShowReference] = useState(false);
   const [artViewMode, setArtViewMode] = useState('dynamic'); // 'static' | 'dynamic'
-
-  useEffect(() => {
-    const savedMode = localStorage.getItem('portfolio_dark_mode');
-    if (savedMode === 'true') {
-      setDarkMode(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('portfolio_dark_mode', 'true');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('portfolio_dark_mode', 'false');
-    }
-  }, [darkMode]);
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
@@ -617,13 +598,13 @@ export default function Portfolio() {
                 {/* Hero / Bio */}
                 <div className="space-y-6">
                   <div>
-                    <h1 className="text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">{USER_DATA.name}</h1>
-                    <p className="text-xl text-violet-900 dark:text-violet-400 font-medium mt-2">{USER_DATA.title}</p>
-                    <p className="text-slate-500 dark:text-slate-400 flex items-center gap-2 mt-2 text-lg">
+                    <h1 className="text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">{USER_DATA.name}</h1>
+                    <p className="text-xl text-violet-900 font-medium mt-2">{USER_DATA.title}</p>
+                    <p className="text-slate-500 flex items-center gap-2 mt-2 text-lg">
                        <GraduationCap size={20} /> {USER_DATA.university}
                     </p>
                   </div>
-                  <div className="text-slate-800 dark:text-slate-300 leading-relaxed text-lg space-y-4">
+                  <div className="text-slate-800 leading-relaxed text-lg space-y-4">
                     <p>{USER_DATA.bio}</p>
                     <p>{USER_DATA.bio_secondary}</p>
                   </div>
@@ -635,7 +616,7 @@ export default function Portfolio() {
                       { href: USER_DATA.links.orcid, icon: <FileText size={20} />, label: "ORCID" },
                       { href: USER_DATA.links.semantic, icon: <BookOpen size={20} />, label: "Semantic Scholar" }
                     ].map((link, idx) => (
-                      <a key={idx} href={link.href} target="_blank" rel="noreferrer" className="bg-white/50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-700 backdrop-blur-sm text-slate-700 dark:text-slate-200 transition-colors flex items-center gap-2 font-bold text-sm px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700">
+                      <a key={idx} href={link.href} target="_blank" rel="noreferrer" className="bg-white/50 hover:bg-slate-100 backdrop-blur-sm text-slate-700 transition-colors flex items-center gap-2 font-bold text-sm px-4 py-2.5 rounded-lg border border-slate-200">
                         {link.icon} {link.label}
                       </a>
                     ))}
@@ -645,11 +626,11 @@ export default function Portfolio() {
                 {/* News Section */}
                 <div className="space-y-6">
                   <SectionTitle>Latest News</SectionTitle>
-                  <div className="h-80 overflow-y-auto pr-2 custom-scrollbar bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                  <div className="h-80 overflow-y-auto pr-2 custom-scrollbar bg-white/50 backdrop-blur-sm p-4 rounded-xl border border-slate-200">
                     {NEWS.map((item, idx) => (
-                      <div key={idx} className="flex flex-col sm:flex-row gap-2 sm:gap-6 py-3 border-b border-slate-200 dark:border-slate-700 last:border-0">
-                        <span className="font-mono text-slate-500 dark:text-slate-400 text-sm w-24 shrink-0 pt-0.5">{item.date}</span>
-                        <span className="text-slate-800 dark:text-slate-200 font-medium">{item.text}</span>
+                      <div key={idx} className="flex flex-col sm:flex-row gap-2 sm:gap-6 py-3 border-b border-slate-200 last:border-0">
+                        <span className="font-mono text-slate-500 text-sm w-24 shrink-0 pt-0.5">{item.date}</span>
+                        <span className="text-slate-800 font-medium">{item.text}</span>
                       </div>
                     ))}
                   </div>
@@ -660,17 +641,17 @@ export default function Portfolio() {
                   <SectionTitle>Selected Publications</SectionTitle>
                   <div className="space-y-6">
                     {PUBLICATIONS.filter(p => p.selected).map(pub => (
-                      <div key={pub.id} className="flex flex-col space-y-2 pb-6 border-b border-slate-100 dark:border-slate-800 last:border-0">
-                         <h4 className="text-lg font-bold text-slate-900 dark:text-white leading-tight">{pub.title}</h4>
-                         <p className="text-slate-600 dark:text-slate-400 text-sm">{pub.authors}</p>
+                      <div key={pub.id} className="flex flex-col space-y-2 pb-6 border-b border-slate-100 last:border-0">
+                         <h4 className="text-lg font-bold text-slate-900 leading-tight">{pub.title}</h4>
+                         <p className="text-slate-600 text-sm">{pub.authors}</p>
                          <div className="flex flex-wrap gap-2 items-center">
-                            <span className="text-violet-900 dark:text-violet-300 font-bold text-xs uppercase">{pub.venue}</span>
+                            <span className="text-violet-900 font-bold text-xs uppercase">{pub.venue}</span>
                             <span className="text-slate-400 text-xs font-mono">• {pub.year}</span>
                          </div>
                          <div className="flex gap-3 pt-1">
-                            {pub.links.pdf && <a href={pub.links.pdf} target="_blank" rel="noreferrer" className="text-xs font-bold text-slate-500 hover:text-violet-900 dark:text-slate-400 dark:hover:text-violet-300 flex items-center gap-1 uppercase tracking-wide"><FileText size={14} /> PDF</a>}
-                            {pub.links.code && <a href={pub.links.code} target="_blank" rel="noreferrer" className="text-xs font-bold text-slate-500 hover:text-violet-900 dark:text-slate-400 dark:hover:text-violet-300 flex items-center gap-1 uppercase tracking-wide"><Code size={14} /> Code</a>}
-                            {pub.links.website && <a href={pub.links.website} target="_blank" rel="noreferrer" className="text-xs font-bold text-slate-500 hover:text-violet-900 dark:text-slate-400 dark:hover:text-violet-300 flex items-center gap-1 uppercase tracking-wide"><ExternalLink size={14} /> Website</a>}
+                            {pub.links.pdf && <a href={pub.links.pdf} target="_blank" rel="noreferrer" className="text-xs font-bold text-slate-500 hover:text-violet-900 flex items-center gap-1 uppercase tracking-wide"><FileText size={14} /> PDF</a>}
+                            {pub.links.code && <a href={pub.links.code} target="_blank" rel="noreferrer" className="text-xs font-bold text-slate-500 hover:text-violet-900 flex items-center gap-1 uppercase tracking-wide"><Code size={14} /> Code</a>}
+                            {pub.links.website && <a href={pub.links.website} target="_blank" rel="noreferrer" className="text-xs font-bold text-slate-500 hover:text-violet-900 flex items-center gap-1 uppercase tracking-wide"><ExternalLink size={14} /> Website</a>}
                          </div>
                       </div>
                     ))}
@@ -681,7 +662,7 @@ export default function Portfolio() {
                 <div className="space-y-6">
                   <SectionTitle>Service</SectionTitle>
                   <div className="flex flex-col gap-3">
-                    <p className="text-slate-600 dark:text-slate-400">I have served as a reviewer for:</p>
+                    <p className="text-slate-600">I have served as a reviewer for:</p>
                     <div className="flex flex-wrap gap-2">
                       {USER_DATA.reviews.map((rev, idx) => (
                         <Badge key={idx} type="outline">{rev}</Badge>
@@ -695,14 +676,14 @@ export default function Portfolio() {
               <div className="lg:col-span-4 space-y-10">
                  {/* Profile Image - Clean */}
                  <div className="w-full aspect-square relative mx-auto lg:mx-0 max-w-sm rounded-xl overflow-hidden shadow-md">
-                    <div className="w-full h-full bg-slate-100 dark:bg-slate-800">
+                    <div className="w-full h-full bg-slate-100">
                       <img src="./assets/main_page/profile.jpg" alt={USER_DATA.name} className="w-full h-full object-cover" />
                     </div>
                  </div>
 
                  <div className="space-y-6">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-violet-900 dark:bg-violet-400"></span>
+                    <h3 className="text-lg font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-violet-900"></span>
                       Research Interests
                     </h3>
                     <div className="flex flex-wrap gap-2">
@@ -712,12 +693,12 @@ export default function Portfolio() {
                     </div>
                   </div>
                   
-                  <div className="space-y-6 pt-6 border-t border-slate-200 dark:border-slate-800">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider">Contact</h3>
+                  <div className="space-y-6 pt-6 border-t border-slate-200">
+                    <h3 className="text-lg font-bold text-slate-900 uppercase tracking-wider">Contact</h3>
                     <form onSubmit={handleContactSubmit} className="flex flex-col gap-4">
-                       <input type="text" placeholder="Name" value={contactForm.name} onChange={(e) => setContactForm({...contactForm, name: e.target.value})} className="p-3 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-900 text-sm" />
-                       <input type="email" placeholder="Email" value={contactForm.email} onChange={(e) => setContactForm({...contactForm, email: e.target.value})} className="p-3 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-900 text-sm" />
-                       <textarea placeholder="Message..." rows={3} value={contactForm.message} onChange={(e) => setContactForm({...contactForm, message: e.target.value})} className="p-3 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-900 text-sm"></textarea>
+                       <input type="text" placeholder="Name" value={contactForm.name} onChange={(e) => setContactForm({...contactForm, name: e.target.value})} className="p-3 bg-white/50 backdrop-blur-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-900 text-sm" />
+                       <input type="email" placeholder="Email" value={contactForm.email} onChange={(e) => setContactForm({...contactForm, email: e.target.value})} className="p-3 bg-white/50 backdrop-blur-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-900 text-sm" />
+                       <textarea placeholder="Message..." rows={3} value={contactForm.message} onChange={(e) => setContactForm({...contactForm, message: e.target.value})} className="p-3 bg-white/50 backdrop-blur-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-900 text-sm"></textarea>
                        <button type="submit" className="flex items-center justify-center gap-2 py-3 px-4 w-full bg-violet-900 hover:bg-violet-800 text-white font-bold rounded-lg transition-colors shadow-md">
                          <Mail size={16} /> Send Email
                        </button>
@@ -731,12 +712,12 @@ export default function Portfolio() {
       case 'publications':
         return (
           <div className="space-y-10 animate-in fade-in duration-500 max-w-5xl mx-auto">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-8">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 pb-8">
               <div>
                 <SectionTitle>All Publications</SectionTitle>
-                <p className="text-slate-500 dark:text-slate-400 -mt-6">Full list of research works.</p>
+                <p className="text-slate-500 -mt-6">Full list of research works.</p>
               </div>
-              <a href={USER_DATA.links.scholar} target="_blank" rel="noreferrer" className="flex items-center gap-2 py-2 px-6 bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-black dark:hover:bg-slate-200 font-bold rounded-lg transition-colors">
+              <a href={USER_DATA.links.scholar} target="_blank" rel="noreferrer" className="flex items-center gap-2 py-2 px-6 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-lg transition-colors">
                 <GraduationCap size={18} /> Google Scholar
               </a>
             </div>
@@ -745,19 +726,19 @@ export default function Portfolio() {
               {PUBLICATIONS.map((pub) => (
                 <Card key={pub.id} className="flex flex-col md:flex-row gap-6 p-0 overflow-hidden hover:shadow-md transition-shadow">
                   <div className="flex-1 p-6 space-y-3">
-                     <h3 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">{pub.title}</h3>
-                     <p className="text-slate-600 dark:text-slate-400 text-sm font-medium">{pub.authors}</p>
+                     <h3 className="text-xl font-bold text-slate-900 leading-tight">{pub.title}</h3>
+                     <p className="text-slate-600 text-sm font-medium">{pub.authors}</p>
                      <div className="flex flex-wrap gap-2 items-center">
-                        <span className="bg-violet-100 text-violet-900 dark:bg-violet-900/30 dark:text-violet-300 text-xs font-bold px-2 py-1 rounded-md">{pub.venue}</span>
+                        <span className="bg-violet-100 text-violet-900 text-xs font-bold px-2 py-1 rounded-md">{pub.venue}</span>
                         <span className="text-slate-500 text-xs font-mono">{pub.year}</span>
                      </div>
                      
                      <div className="flex flex-wrap gap-3 pt-3">
-                        {pub.links.pdf && <a href={pub.links.pdf} target="_blank" rel="noreferrer" className="bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wide flex items-center gap-2 transition-colors"><FileText size={14} /> PDF</a>}
-                        {pub.links.arxiv && <a href={pub.links.arxiv} target="_blank" rel="noreferrer" className="bg-red-50 hover:bg-red-100 dark:bg-red-900/20 dark:hover:bg-red-900/30 text-red-700 dark:text-red-300 px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wide flex items-center gap-2 transition-colors"><BookOpen size={14} /> ArXiv</a>}
-                        {pub.links.code && <a href={pub.links.code} target="_blank" rel="noreferrer" className="bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-200 text-white dark:text-black px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wide flex items-center gap-2 transition-colors"><Github size={14} /> Code</a>}
-                        {pub.links.demo && <a href={pub.links.demo} target="_blank" rel="noreferrer" className="bg-yellow-50 hover:bg-yellow-100 dark:bg-yellow-900/20 dark:hover:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wide flex items-center gap-2 transition-colors"><PlayCircle size={14} /> Demo</a>}
-                        {pub.links.website && <a href={pub.links.website} target="_blank" rel="noreferrer" className="bg-blue-50 hover:bg-blue-100 dark:bg-blue-900/20 dark:hover:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wide flex items-center gap-2 transition-colors"><ExternalLink size={14} /> Website</a>}
+                        {pub.links.pdf && <a href={pub.links.pdf} target="_blank" rel="noreferrer" className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wide flex items-center gap-2 transition-colors"><FileText size={14} /> PDF</a>}
+                        {pub.links.arxiv && <a href={pub.links.arxiv} target="_blank" rel="noreferrer" className="bg-red-50 hover:bg-red-100 text-red-700 px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wide flex items-center gap-2 transition-colors"><BookOpen size={14} /> ArXiv</a>}
+                        {pub.links.code && <a href={pub.links.code} target="_blank" rel="noreferrer" className="bg-slate-900 hover:bg-slate-800 text-white px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wide flex items-center gap-2 transition-colors"><Github size={14} /> Code</a>}
+                        {pub.links.demo && <a href={pub.links.demo} target="_blank" rel="noreferrer" className="bg-yellow-50 hover:bg-yellow-100 text-yellow-700 px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wide flex items-center gap-2 transition-colors"><PlayCircle size={14} /> Demo</a>}
+                        {pub.links.website && <a href={pub.links.website} target="_blank" rel="noreferrer" className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wide flex items-center gap-2 transition-colors"><ExternalLink size={14} /> Website</a>}
                      </div>
                   </div>
                 </Card>
@@ -769,23 +750,23 @@ export default function Portfolio() {
       case 'cv':
         return (
           <div className="space-y-12 animate-in fade-in duration-500 max-w-4xl mx-auto">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-8">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 pb-8">
               <SectionTitle>Curriculum Vitae</SectionTitle>
-              <button className="flex items-center gap-2 py-2 px-6 bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-black dark:hover:bg-slate-200 font-bold rounded-lg transition-colors -mt-6">
+              <button className="flex items-center gap-2 py-2 px-6 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-lg transition-colors -mt-6">
                  <FileText size={18} /> Download PDF
                </button>
             </div>
 
             <div className="space-y-16">
                {EXPERIENCES.map((exp) => (
-                 <div key={exp.id} className="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800">
-                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-violet-900 dark:bg-violet-400 border-4 border-white dark:border-zinc-950"></div>
+                 <div key={exp.id} className="relative pl-8 border-l-2 border-slate-200">
+                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-violet-900 border-4 border-white"></div>
                     <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{exp.role}</h3>
-                      <span className="text-sm font-mono text-violet-900 dark:text-violet-300 font-bold bg-violet-100 dark:bg-violet-900/20 px-3 py-1 rounded-md">{exp.period}</span>
+                      <h3 className="text-2xl font-bold text-slate-900">{exp.role}</h3>
+                      <span className="text-sm font-mono text-violet-900 font-bold bg-violet-100 px-3 py-1 rounded-md">{exp.period}</span>
                     </div>
-                    <div className="text-lg font-medium text-slate-700 dark:text-slate-300 mb-4">{exp.org}</div>
-                    <div className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+                    <div className="text-lg font-medium text-slate-700 mb-4">{exp.org}</div>
+                    <div className="text-slate-600 leading-relaxed text-lg">
                       {exp.desc}
                     </div>
                  </div>
@@ -802,8 +783,8 @@ export default function Portfolio() {
         return (
           <div className="space-y-12 animate-in fade-in duration-500 max-w-6xl mx-auto">
             <div className="text-center max-w-3xl mx-auto space-y-6">
-               <h2 className="text-4xl font-bold text-slate-900 dark:text-white">Gallery</h2>
-               <p className="text-xl text-slate-700 dark:text-slate-400 leading-relaxed">
+               <h2 className="text-4xl font-bold text-slate-900">Gallery</h2>
+               <p className="text-xl text-slate-700 leading-relaxed">
                  Working with diffusion models leads to some weirdly unplanned generations that make you question your life choices. Enjoy the following curated collection of outputs, artifacts, and generally amusing images from my experiments.
                </p>
             </div>
@@ -816,7 +797,7 @@ export default function Portfolio() {
                   className={`px-6 py-2.5 text-sm font-bold uppercase tracking-widest rounded-lg transition-all ${
                     galleryFilter === filter 
                     ? 'bg-violet-900 text-white shadow-md' 
-                    : 'bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:border-violet-300 dark:hover:border-violet-700'
+                    : 'bg-white text-slate-500 border border-slate-200 hover:border-violet-300'
                   }`}
                 >
                   {filter}
@@ -829,7 +810,7 @@ export default function Portfolio() {
                  <div 
                    key={item.id} 
                    onClick={() => setSelectedArt(item)}
-                   className="break-inside-avoid bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden cursor-pointer group hover:border-violet-400 dark:hover:border-violet-600 hover:shadow-lg transition-all"
+                   className="break-inside-avoid bg-white border border-slate-200 rounded-xl overflow-hidden cursor-pointer group hover:border-violet-400 hover:shadow-lg transition-all"
                  >
                     <div className={`w-full h-80 ${item.color} flex items-center justify-center relative`}>
                         {item.assets && item.assets.medium ? (
@@ -839,7 +820,7 @@ export default function Portfolio() {
                            // Static items
                            <img src={item.asset} alt={item.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
                         ) : (
-                           <ImageIcon size={48} className="text-slate-400 dark:text-slate-600 opacity-50" />
+                           <ImageIcon size={48} className="text-slate-400 opacity-50" />
                         )}
                         <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
                            <span className="opacity-0 group-hover:opacity-100 bg-white text-slate-900 px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all">View</span>
@@ -849,8 +830,8 @@ export default function Portfolio() {
                       <div className="flex justify-between items-center mb-3">
                          <Badge>{item.category}</Badge>
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
-                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">{item.desc}</p>
+                      <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                      <p className="text-sm text-slate-600 leading-relaxed line-clamp-2">{item.desc}</p>
                     </div>
                  </div>
                ))}
@@ -864,14 +845,14 @@ export default function Portfolio() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''} bg-transparent relative`}>
-      <LossLandscapeBackground darkMode={darkMode} />
+    <div className="min-h-screen transition-colors duration-300 bg-transparent relative">
+      <LossLandscapeBackground />
       
       {/* Mobile Header */}
-      <div className="md:hidden flex justify-between items-center p-4 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
-        <span className="font-bold text-lg dark:text-white">Ahmad Arrabi</span>
+      <div className="md:hidden flex justify-between items-center p-4 bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
+        <span className="font-bold text-lg">Ahmad Arrabi</span>
         <div className="flex items-center gap-2">
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-lg bg-slate-50 text-slate-600">
              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -880,12 +861,12 @@ export default function Portfolio() {
       <div className="flex flex-col md:flex-row min-h-screen relative z-10">
         
         {/* Sidebar Navigation */}
-        <aside className={`hidden md:flex fixed left-0 top-0 z-50 h-screen w-20 hover:w-64 transition-all duration-300 ease-in-out flex-col justify-between group bg-white/90 dark:bg-black/90 backdrop-blur-md border-r border-slate-200 dark:border-slate-800 shadow-xl`}>
+        <aside className="hidden md:flex fixed left-0 top-0 z-50 h-screen w-20 hover:w-64 transition-all duration-300 ease-in-out flex-col justify-between group bg-white/90 backdrop-blur-md border-r border-slate-200 shadow-xl">
           <div className="flex flex-col w-full h-full overflow-hidden">
             <div className="p-6 mb-2 flex items-center overflow-hidden whitespace-nowrap">
                <div className="w-8 h-8 flex shrink-0 items-center justify-center bg-violet-900 text-white rounded-lg font-bold text-xl shadow-lg shadow-violet-900/30">AA</div>
                <div className="ml-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h2 className="font-bold text-base text-slate-900 dark:text-white uppercase tracking-wider">{USER_DATA.name}</h2>
+                  <h2 className="font-bold text-base text-slate-900 uppercase tracking-wider">{USER_DATA.name}</h2>
                </div>
             </div>
 
@@ -899,8 +880,8 @@ export default function Portfolio() {
                   }}
                   className={`w-full flex items-center px-2 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all duration-200 whitespace-nowrap overflow-hidden
                     ${activeSection === item.id 
-                      ? 'bg-violet-50 text-violet-900 dark:bg-violet-900/20 dark:text-violet-300' 
-                      : 'text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900'
+                      ? 'bg-violet-50 text-violet-900' 
+                      : 'text-slate-400 hover:text-slate-900 hover:bg-slate-50'
                     }
                   `}
                 >
@@ -913,11 +894,11 @@ export default function Portfolio() {
         </aside>
 
         {/* Mobile Drawer */}
-        <aside className={`md:hidden fixed top-0 h-screen w-64 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-r border-slate-200 dark:border-slate-800 p-6 z-30 transition-transform duration-300 ease-in-out flex flex-col justify-between ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <aside className={`md:hidden fixed top-0 h-screen w-64 bg-white/95 backdrop-blur-md border-r border-slate-200 p-6 z-30 transition-transform duration-300 ease-in-out flex flex-col justify-between ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
            <div>
              <div className="mb-12">
                <div className="w-10 h-10 bg-violet-900 rounded-lg flex items-center justify-center text-white font-bold text-xl mb-4 shadow-lg">AA</div>
-               <h2 className="font-bold text-slate-900 dark:text-white">{USER_DATA.name}</h2>
+               <h2 className="font-bold text-slate-900">{USER_DATA.name}</h2>
              </div>
              <nav className="space-y-4">
               {navItems.map(item => (
@@ -928,7 +909,7 @@ export default function Portfolio() {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className={`w-full flex items-center gap-4 px-2 py-2 text-sm font-bold uppercase tracking-widest ${activeSection === item.id ? 'text-violet-900 dark:text-violet-400' : 'text-slate-400 dark:text-slate-500'}`}
+                  className={`w-full flex items-center gap-4 px-2 py-2 text-sm font-bold uppercase tracking-widest ${activeSection === item.id ? 'text-violet-900' : 'text-slate-400'}`}
                 >
                   {item.icon} {item.label}
                 </button>
@@ -945,7 +926,7 @@ export default function Portfolio() {
         {/* Main Content Area */}
         <main className="flex-1 p-8 md:p-16 md:ml-20 overflow-x-hidden transition-all duration-300">
            {renderContent()}
-           <footer className="mt-32 pt-12 border-t border-slate-200 dark:border-slate-800 text-center text-slate-400 dark:text-slate-600 text-sm font-mono uppercase tracking-widest">
+           <footer className="mt-32 pt-12 border-t border-slate-200 text-center text-slate-400 text-sm font-mono uppercase tracking-widest">
               <p>&copy; {new Date().getFullYear()} Ahmad Arrabi. Built with React & Tailwind.</p>
            </footer>
         </main>
@@ -954,10 +935,10 @@ export default function Portfolio() {
       {/* GALLERY MODAL - RENDERED OUTSIDE OF MAIN CONTENT FOR FULL SCREEN COVERAGE */}
       {selectedArt && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/20 backdrop-blur-md animate-in fade-in duration-200" onClick={() => setSelectedArt(null)}>
-          <div className="bg-white dark:bg-zinc-900 max-w-7xl w-full h-[90vh] flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
+          <div className="bg-white max-w-7xl w-full h-[90vh] flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
              
              {/* Main Image Area */}
-             <div className={`w-full h-1/2 md:h-full flex bg-gray-100 dark:bg-black relative border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800`}>
+             <div className={`w-full h-1/2 md:h-full flex bg-gray-100 relative border-b md:border-b-0 md:border-r border-slate-200`}>
                 <button 
                   onClick={() => setSelectedArt(null)} 
                   className="absolute top-4 right-4 md:hidden p-2 bg-white/50 rounded-full hover:bg-white transition-colors z-10"
@@ -968,26 +949,26 @@ export default function Portfolio() {
                 {selectedArt.interactive ? (
                     <div className="w-full h-full flex gap-4 p-4">
                         {/* Generated Image */}
-                        <div className="relative flex-1 h-full flex items-center justify-center bg-white/50 dark:bg-black/50 rounded-lg border border-slate-200 dark:border-slate-800">
+                        <div className="relative flex-1 h-full flex items-center justify-center bg-white/50 rounded-lg border border-slate-200">
                             <img 
                                 src={selectedArt.assets[artAlignment][artViewMode === 'static' ? 'png' : 'gif']} 
                                 alt={selectedArt.title}
                                 className="max-w-full max-h-full object-contain shadow-md"
                             />
-                            <div className="absolute bottom-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-widest text-slate-900 dark:text-white shadow-sm">
+                            <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm border border-slate-200 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-widest text-slate-900 shadow-sm">
                                 Alignment: {artAlignment}
                             </div>
                         </div>
 
                         {/* Reference Image (Conditional) */}
                         {showReference && (
-                            <div className="relative flex-1 h-full flex items-center justify-center bg-white/50 dark:bg-black/50 rounded-lg border border-slate-200 dark:border-slate-800 animate-in fade-in slide-in-from-right-4 duration-500">
+                            <div className="relative flex-1 h-full flex items-center justify-center bg-white/50 rounded-lg border border-slate-200 animate-in fade-in slide-in-from-right-4 duration-500">
                                 <img 
                                     src={selectedArt.assets.ref} 
                                     alt="Reference"
                                     className="max-w-full max-h-full object-contain shadow-md"
                                 />
-                                <div className="absolute bottom-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-widest text-slate-900 dark:text-white shadow-sm">
+                                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm border border-slate-200 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-widest text-slate-900 shadow-sm">
                                     Reference
                                 </div>
                             </div>
@@ -1007,55 +988,55 @@ export default function Portfolio() {
              </div>
 
              {/* Sidebar / Controls */}
-             <div className="w-full md:w-1/4 p-8 overflow-y-auto flex flex-col bg-white dark:bg-zinc-900">
+             <div className="w-full md:w-1/4 p-8 overflow-y-auto flex flex-col bg-white">
                 <div className="flex justify-between items-start mb-8">
                    <div>
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 leading-tight">{selectedArt.title}</h3>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-2 leading-tight">{selectedArt.title}</h3>
                       <Badge>{selectedArt.category}</Badge>
                    </div>
-                   <button onClick={() => setSelectedArt(null)} className="hidden md:block p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+                   <button onClick={() => setSelectedArt(null)} className="hidden md:block p-2 hover:bg-slate-100 rounded-full transition-colors">
                       <X size={24} className="text-slate-500" />
                    </button>
                 </div>
                 
-                <div className="prose dark:prose-invert text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-10 flex-1">
+                <div className="prose text-slate-700 leading-relaxed text-base mb-10 flex-1">
                   {selectedArt.desc}
                 </div>
 
                 {/* Interactive Controls */}
                 {selectedArt.interactive && (
-                   <div className="space-y-8 border-t border-slate-200 dark:border-slate-800 pt-8 mt-auto">
+                   <div className="space-y-8 border-t border-slate-200 pt-8 mt-auto">
                       {/* Mode Toggle */}
-                      <div className="flex items-center justify-between bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+                      <div className="flex items-center justify-between bg-slate-100 p-1 rounded-lg">
                          <button 
                            onClick={() => setArtViewMode('dynamic')}
-                           className={`flex-1 py-1.5 text-xs font-bold uppercase tracking-widest rounded-md transition-all ${artViewMode === 'dynamic' ? 'bg-white dark:bg-zinc-900 text-violet-900 dark:text-violet-300 shadow-sm' : 'text-slate-500'}`}
+                           className={`flex-1 py-1.5 text-xs font-bold uppercase tracking-widest rounded-md transition-all ${artViewMode === 'dynamic' ? 'bg-white text-violet-900 shadow-sm' : 'text-slate-500'}`}
                          >
                            Dynamic
                          </button>
                          <button 
                            onClick={() => setArtViewMode('static')}
-                           className={`flex-1 py-1.5 text-xs font-bold uppercase tracking-widest rounded-md transition-all ${artViewMode === 'static' ? 'bg-white dark:bg-zinc-900 text-violet-900 dark:text-violet-300 shadow-sm' : 'text-slate-500'}`}
+                           className={`flex-1 py-1.5 text-xs font-bold uppercase tracking-widest rounded-md transition-all ${artViewMode === 'static' ? 'bg-white text-violet-900 shadow-sm' : 'text-slate-500'}`}
                          >
                            Static
                          </button>
                       </div>
 
                       <div className="flex items-center justify-between">
-                         <span className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest">Compare Reference</span>
-                         <button onClick={() => setShowReference(!showReference)} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest transition-all border ${showReference ? 'bg-violet-900 text-white border-violet-900' : 'bg-transparent text-slate-500 border-slate-300 dark:border-slate-700'}`}>
+                         <span className="text-sm font-bold text-slate-900 uppercase tracking-widest">Compare Reference</span>
+                         <button onClick={() => setShowReference(!showReference)} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest transition-all border ${showReference ? 'bg-violet-900 text-white border-violet-900' : 'bg-transparent text-slate-500 border-slate-300'}`}>
                            {showReference ? <Eye size={14} /> : <EyeOff size={14} />} {showReference ? 'ON' : 'OFF'}
                          </button>
                       </div>
 
                       <div className="transition-opacity duration-200 opacity-100">
                          <div className="flex items-center gap-2 mb-4">
-                            <Sliders size={16} className="text-violet-900 dark:text-violet-400" />
-                            <span className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest">Alignment</span>
+                            <Sliders size={16} className="text-violet-900" />
+                            <span className="text-sm font-bold text-slate-900 uppercase tracking-widest">Alignment</span>
                          </div>
                          <div className="grid grid-cols-2 gap-3">
                             {['abstract', 'weak', 'medium', 'strong'].map((align) => (
-                               <button key={align} onClick={() => setArtAlignment(align)} className={`px-4 py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all border ${artAlignment === align ? 'bg-violet-900 text-white border-violet-900 shadow-md' : 'bg-transparent text-slate-500 border-slate-200 dark:border-slate-800 hover:border-violet-400'}`}>{align}</button>
+                               <button key={align} onClick={() => setArtAlignment(align)} className={`px-4 py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all border ${artAlignment === align ? 'bg-violet-900 text-white border-violet-900 shadow-md' : 'bg-transparent text-slate-500 border-slate-200 hover:border-violet-400'}`}>{align}</button>
                             ))}
                          </div>
                       </div>
@@ -1064,7 +1045,7 @@ export default function Portfolio() {
                 
                 {/* Application specific controls */}
                 {selectedArt.category === 'Applications' && (
-                    <div className="mt-auto pt-8 border-t border-slate-200 dark:border-slate-800">
+                    <div className="mt-auto pt-8 border-t border-slate-200">
                        <a href="#" className="flex items-center justify-center gap-3 w-full py-4 bg-violet-900 hover:bg-violet-800 text-white rounded-xl font-bold uppercase tracking-widest transition-colors shadow-lg">
                           <PlayCircle size={18} /> View Live Demo
                        </a>
