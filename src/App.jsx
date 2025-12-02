@@ -139,7 +139,7 @@ const USER_DATA = {
     semantic: "https://www.semanticscholar.org/author/Ahmad-Arrabi/2315298518"
   },
   reviews: [
-    "IPCAI 2026", "ECAI 2025", "Pattern Recognition Letters"
+    "IPCAI 2026", "ECAI 2025", "Pattern Recognition", "Pattern Recognition Letters"
   ]
 };
 
@@ -306,21 +306,21 @@ const GALLERY_ITEMS = [
       strong: { gif: "./assets/gallery/5Km/strong.gif", png: "./assets/gallery/5Km/strong.png" }
     }
   },
-  {
-    id: 3,
-    category: "Artwork",
-    title: "Overstepping is allowed",
-    desc: "The best two software engineers in the MENA region!",
-    color: "bg-emerald-100",
-    interactive: true,
-    assets: {
-      ref: "./assets/gallery/reemaandhussein/condition.png",
-      abstract: { gif: "./assets/gallery/reemaandhussein/abstract.gif", png: "./assets/gallery/reemaandhussein/abstract.png" },
-      weak: { gif: "./assets/gallery/reemaandhussein/weak.gif", png: "./assets/gallery/reemaandhussein/weak.png" },
-      medium: { gif: "./assets/gallery/reemaandhussein/med.gif", png: "./assets/gallery/reemaandhussein/med.png" },
-      strong: { gif: "./assets/gallery/reemaandhussein/strong.gif", png: "./assets/gallery/reemaandhussein/strong.png" }
-    }
-  },
+  //{
+  //  id: 3,
+  //  category: "Artwork",
+  //  title: "Overstepping is allowed",
+  //  desc: "The best two software engineers in the MENA region!",
+  //  color: "bg-emerald-100",
+  //  interactive: true,
+  //  assets: {
+  //    ref: "./assets/gallery/reemaandhussein/condition.png",
+  //    abstract: { gif: "./assets/gallery/reemaandhussein/abstract.gif", png: "./assets/gallery/reemaandhussein/abstract.png" },
+  //    weak: { gif: "./assets/gallery/reemaandhussein/weak.gif", png: "./assets/gallery/reemaandhussein/weak.png" },
+  //    medium: { gif: "./assets/gallery/reemaandhussein/med.gif", png: "./assets/gallery/reemaandhussein/med.png" },
+  //    strong: { gif: "./assets/gallery/reemaandhussein/strong.gif", png: "./assets/gallery/reemaandhussein/strong.png" }
+  //  }
+  //},
   {
     id: 4,
     category: "Artwork",
