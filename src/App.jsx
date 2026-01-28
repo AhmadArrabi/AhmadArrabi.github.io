@@ -753,7 +753,7 @@ export default function Portfolio() {
             <div className="text-center max-w-3xl mx-auto space-y-6">
                <h2 className="text-4xl font-bold text-slate-900">Gallery</h2>
                <p className="text-xl text-slate-700 leading-relaxed">
-                 Working with diffusion models leads to some weirdly unplanned generations that make you question your life choices. Enjoy the following curated collection of outputs, artifacts, and generally amusing images from my experiments.
+                 Working with diffusion models leads to some weirdly unplanned generations. Enjoy the following curated collection of outputs, artifacts, and generally amusing images from my experiments.
                </p>
             </div>
 
