@@ -139,7 +139,7 @@ const USER_DATA = {
     semantic: "https://www.semanticscholar.org/author/Ahmad-Arrabi/2315298518"
   },
   reviews: [
-    "IPCAI 2026", "ECAI 2025", "Pattern Recognition", "Pattern Recognition Letters"
+    "IPCAI 2026", "ECAI 2025", "IJCARS", "Pattern Recognition", "Pattern Recognition Letters"
   ]
 };
 
@@ -626,9 +626,9 @@ export default function Portfolio() {
                   </div>
                 </div>
 
-                {/* Services */}
+                {/* Reviewing */}
                 <div className="space-y-6">
-                  <SectionTitle>Service</SectionTitle>
+                  <SectionTitle>Reviewing</SectionTitle>
                   <div className="flex flex-col gap-3">
                     <p className="text-slate-600">I have served as a reviewer for:</p>
                     <div className="flex flex-wrap gap-2">
