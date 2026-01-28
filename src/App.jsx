@@ -230,45 +230,13 @@ const EXPERIENCES = [
     id: 1,
     role: "Graduate Research Assistant",
     org: "University of Vermont",
-    period: "2023 - Present",
-    desc: (
-      <div className="space-y-4 text-base">
-        <p>
-          Carried out research in <b>generative models</b> and <b>applied deep learning</b>, managing full projects lifecycles from ideation to complete implementaion. My work has recently pivoted towards <b>medical interventions</b> particularly in autonomous C-arm control.
-        </p>
-        <ul className="list-disc list-outside ml-4 space-y-2 marker:text-violet-900">
-          <li>
-            <b>Interdisciplinary Collaboration:</b> Worked with experts from the <b>Cleveland Clinic</b> to develop computer-assisted intervention <i>in vivo</i> systems, bridging the gap between deep learning and clinical need.
-          </li>
-          <li>
-            <b>High-Volume Experimentation:</b> I maintain a rigorous experimental workflow, running an average of <b>5-10 experiments per week</b>. I have extensive experience managing jobs and resources on <b>HPC clusters using Slurm</b>.
-          </li>
-          <li>
-            <b>End-to-End Research:</b> I start projects from scratch, taking raw ideas and formulating them into research problems, ultimately leading execution into fully functioning open-source projects and papers.
-          </li>
-          <li>
-            <b>Academic Leadership:</b> Assisted advisor in <b>grant writing</b> and actively contribute to the community as a reviewer for top-tier venues.
-          </li>
-        </ul>
-      </div>
-    )
+    period: "2023 - Present"
   },
   {
     id: 2,
     role: "BSc in Computer Engineering",
     org: "Princess Sumaya University for Technology",
-    period: "2017 - 2022",
-    desc: (
-      <div className="space-y-2 text-base">
-        <p>
-          Located in Amman, Jordan. Gained initial footing in research as an Undergraduate Researcher.
-        </p>
-        <ul className="list-disc list-outside ml-4 space-y-1 marker:text-violet-900">
-            <li>Developed <b>Reinforcement Learning</b> agents for autonomous parking systems.</li>
-            <li>Executed full <b>Sim2Real transfer</b>: Validated policies in simulation and successfully deployed them on physical hardware using NVIDIA Jetson Nano.</li>
-        </ul>
-      </div>
-    )
+    period: "2017 - 2022"
   }
 ];
 
