@@ -308,7 +308,7 @@ const GALLERY_ITEMS = [
     id: 5,
     category: "Artwork",
     title: "Chopper",
-    desc: "Tony Tony Copper, a legend",
+    desc: "Tony",
     color: "bg-cyan-100",
     interactive: true,
     assets: {
