@@ -153,7 +153,8 @@ const RESEARCH_INTERESTS = [
 ];
 
 const NEWS = [
-  { date: "Nov 19, 2024", text: <span>I attended <a href="https://rise-miccai.org/event/ws2025/" target="_blank" rel="noreferrer" className="text-violet-900 hover:underline font-bold">RISE-MICCAI Winter School 2025</a>.</span> },
+  { date: "Feb 6, 2026", text: <span>I got awarded the <a href="https://miccai.org/index.php/about-miccai/awards/miccai-society-membership-grants/" target="_blank" rel="noreferrer" className="text-violet-900 hover:underline font-bold">MICCAI Society Membership Grant</a>!</span> },
+  { date: "Nov 19, 2025", text: <span>I attended <a href="https://rise-miccai.org/event/ws2025/" target="_blank" rel="noreferrer" className="text-violet-900 hover:underline font-bold">RISE-MICCAI Winter School 2025</a>.</span> },
   { date: "Oct 19, 2025", text: <span>Our paper "Automated C-Arm Positioning via Conformal Landmark Localization" got accepted at the <a href="#" className="text-violet-900 hover:underline font-bold">Workshop on Advanced Perception for Autonomous Healthcare (APAH)</a> at ICCV!</span> },
   { date: "Sep 15, 2025", text: "I passed my qualifying exams!" },
   { date: "Feb 22, 2025", text: <span>I was invited to the <a href="#" className="text-violet-900 hover:underline font-bold">1st International Workshop on Video Surveillance Systems in Smart Cities!</a> I will be presenting my most recent paper in WACV!</span> },
