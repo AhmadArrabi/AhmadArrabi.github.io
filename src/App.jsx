@@ -157,7 +157,7 @@ const NEWS = [
   { date: "Nov 19, 2025", text: <span>I attended <a href="https://rise-miccai.org/event/ws2025/" target="_blank" rel="noreferrer" className="text-violet-900 hover:underline font-bold">RISE-MICCAI Winter School 2025</a>.</span> },
   { date: "Oct 19, 2025", text: <span>Our paper "Automated C-Arm Positioning via Conformal Landmark Localization" got accepted at the <a href="#" className="text-violet-900 hover:underline font-bold">Workshop on Advanced Perception for Autonomous Healthcare (APAH)</a> at ICCV!</span> },
   { date: "Sep 15, 2025", text: "I passed my qualifying exams!" },
-  { date: "Feb 22, 2025", text: <span>I was invited to the <a href="#" className="text-violet-900 hover:underline font-bold">1st International Workshop on Video Surveillance Systems in Smart Cities!</a> I will be presenting my most recent paper in WACV!</span> },
+  { date: "Feb 22, 2025", text: <span>I was invited to the <a href="https://sites.google.com/view/v3sc/home" className="text-violet-900 hover:underline font-bold">1st International Workshop on Video Surveillance Systems in Smart Cities!</a> I will be presenting my most recent paper in WACV!</span> },
   { date: "Jan 02, 2025", text: <span>We got a paper accepted in <a href="#" className="text-violet-900 hover:underline font-bold">ISBI 2025!</a></span> },
   { date: "Dec 17, 2024", text: <span>Our lab will be leading a tutorial session on <a href="#" className="text-violet-900 hover:underline font-bold">cross-view geolocalization at WACV 2025!</a> Join us!</span> },
   { date: "Nov 04, 2024", text: <span>We got a paper accepted in <a href="#" className="text-violet-900 hover:underline font-bold">WACV 2025!</a></span> }
