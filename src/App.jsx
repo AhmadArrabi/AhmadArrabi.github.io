@@ -723,7 +723,7 @@ export default function Portfolio() {
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-8">
               <SectionTitle>Curriculum Vitae</SectionTitle>
               <a 
-                href="./assets/cv.pdf" 
+                href="./assets/arrabi_cv.pdf" 
                 target="_blank" 
                 rel="noreferrer"
                 className="flex items-center gap-2 py-2 px-6 bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-black dark:hover:bg-slate-200 font-bold rounded-lg transition-colors -mt-6"
