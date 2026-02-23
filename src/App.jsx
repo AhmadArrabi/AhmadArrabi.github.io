@@ -720,11 +720,16 @@ export default function Portfolio() {
       case 'cv':
         return (
           <div className="space-y-12 animate-in fade-in duration-500 max-w-4xl mx-auto">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 pb-8">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-8">
               <SectionTitle>Curriculum Vitae</SectionTitle>
-              <button className="flex items-center gap-2 py-2 px-6 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-lg transition-colors -mt-6">
+              <a 
+                href="./assets/cv.pdf" 
+                target="_blank" 
+                rel="noreferrer"
+                className="flex items-center gap-2 py-2 px-6 bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-black dark:hover:bg-slate-200 font-bold rounded-lg transition-colors -mt-6"
+              >
                  <FileText size={18} /> Download PDF
-               </button>
+               </a>
             </div>
 
             <div className="space-y-16">
