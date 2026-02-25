@@ -469,15 +469,6 @@ const GALLERY_ITEMS = [
     asset: "./assets/gallery/cool/ice2.png"
   },
   {
-    id: 19,
-    category: "Cool Generations",
-    title: "Beware",
-    desc: "Inverse me",
-    color: "bg-slate-200",
-    interactive: false,
-    asset: "./assets/gallery/cool/beware.gif"
-  },
-  {
     id: 20,
     category: "Cool Generations",
     title: "Stand Alone",
