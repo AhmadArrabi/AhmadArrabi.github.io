@@ -1,117 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { 
-  MapPin, Mail, Github, Linkedin, 
+  MapPin, Github, Linkedin, 
   FileText, GraduationCap, Link as LinkIcon, 
   Menu, X, ExternalLink, Code, Database, 
   ChevronRight, Award, BookOpen, Layers, Image as ImageIcon,
   PlayCircle, Star, GitFork, Eye, EyeOff, Sliders, Check, Maximize2,
   Zap, Image, Film
 } from 'lucide-react';
-
-// --- VISUALIZATION COMPONENT: LOSS LANDSCAPE ---
-const LossLandscapeBackground = () => {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-    let time = 0;
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    window.addEventListener('resize', resize);
-    resize();
-
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Fixed Light Mode Color (Transparent Violet)
-      ctx.strokeStyle = 'rgba(76, 29, 149, 0.04)'; 
-      ctx.lineWidth = 1;
-
-      const width = canvas.width;
-      const height = canvas.height;
-      
-      // Tighter grid for more detail (more "local minima")
-      const step = 40; 
-      const cols = Math.ceil(width / step) + 4;
-      const rows = Math.ceil(height / step) + 4;
-      
-      const center = { x: width / 2, y: height / 2 };
-      
-      ctx.beginPath();
-
-      // Draw Grid
-      for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < cols; x++) {
-          const gx = (x - cols / 2) * step;
-          const gy = (y - rows / 2) * step;
-          
-          // --- Complex Loss Landscape Function ---
-          const slowTime = time * 0.0005;
-          
-          const z = 
-            Math.sin(gx * 0.003 + slowTime) * 60 + 
-            Math.cos(gy * 0.003 + slowTime) * 60 +
-            Math.sin(gx * 0.01 - gy * 0.01 + slowTime * 2) * 15 +
-            Math.cos(gx * 0.005 + gy * 0.005) * 10;
-
-          // Simple Isometric Projection
-          const isoX = center.x + (gx - gy) * 0.7;
-          const isoY = center.y + (gx + gy) * 0.35 - z * 0.6;
-
-          if (x === 0) ctx.moveTo(isoX, isoY);
-          else ctx.lineTo(isoX, isoY);
-        }
-      }
-      ctx.stroke();
-
-      // Transverse lines
-      ctx.beginPath();
-      for (let x = 0; x < cols; x++) {
-        for (let y = 0; y < rows; y++) {
-          const gx = (x - cols / 2) * step;
-          const gy = (y - rows / 2) * step;
-          
-          const slowTime = time * 0.0005;
-          
-          const z = 
-            Math.sin(gx * 0.003 + slowTime) * 60 + 
-            Math.cos(gy * 0.003 + slowTime) * 60 +
-            Math.sin(gx * 0.01 - gy * 0.01 + slowTime * 2) * 15 +
-            Math.cos(gx * 0.005 + gy * 0.005) * 10;
-
-          const isoX = center.x + (gx - gy) * 0.7;
-          const isoY = center.y + (gx + gy) * 0.35 - z * 0.6;
-
-          if (y === 0) ctx.moveTo(isoX, isoY);
-          else ctx.lineTo(isoX, isoY);
-        }
-      }
-      ctx.stroke();
-
-      time += 1; 
-      animationFrameId = requestAnimationFrame(draw);
-    };
-
-    draw();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
-  return (
-    <canvas 
-      ref={canvasRef} 
-      className="fixed inset-0 w-full h-full pointer-events-none z-0 bg-transparent"
-    />
-  );
-};
 
 // --- DATA CONFIGURATION ---
 const USER_DATA = {
@@ -150,18 +45,6 @@ const RESEARCH_INTERESTS = [
   "Multi-Modal Diffusion",
   "Cross-View Synthesis",
   "Deep Learning Applications"
-];
-
-const NEWS = [
-  { date: "Feb 13, 2026", text: <span>One paper accepted in <a href="https://sites.google.com/view/ipcai2026" target="_blank" rel="noreferrer" className="text-violet-900 hover:underline font-bold">IPCAI!</a>!</span> },
-  { date: "Feb 6, 2026", text: <span>I got awarded the <a href="https://miccai.org/index.php/about-miccai/awards/miccai-society-membership-grants/" target="_blank" rel="noreferrer" className="text-violet-900 hover:underline font-bold">MICCAI Society Membership Grant</a>!</span> },
-  { date: "Nov 19, 2025", text: <span>I attended <a href="https://rise-miccai.org/event/ws2025/" target="_blank" rel="noreferrer" className="text-violet-900 hover:underline font-bold">RISE-MICCAI Winter School 2025</a>.</span> },
-  { date: "Oct 19, 2025", text: <span>Our paper "Automated C-Arm Positioning via Conformal Landmark Localization" got accepted at the <a href="#" className="text-violet-900 hover:underline font-bold">Workshop on Advanced Perception for Autonomous Healthcare (APAH)</a> at ICCV!</span> },
-  { date: "Sep 15, 2025", text: "I passed my qualifying exams!" },
-  { date: "Feb 22, 2025", text: <span>I was invited to the <a href="https://sites.google.com/view/v3sc/home" className="text-violet-900 hover:underline font-bold">1st International Workshop on Video Surveillance Systems in Smart Cities!</a> I will be presenting my most recent paper in WACV!</span> },
-  { date: "Jan 02, 2025", text: <span>We got a paper accepted in <a href="#" className="text-violet-900 hover:underline font-bold">ISBI 2025!</a></span> },
-  { date: "Dec 17, 2024", text: <span>Our lab will be leading a tutorial session on <a href="#" className="text-violet-900 hover:underline font-bold">cross-view geolocalization at WACV 2025!</a> Join us!</span> },
-  { date: "Nov 04, 2024", text: <span>We got a paper accepted in <a href="#" className="text-violet-900 hover:underline font-bold">WACV 2025!</a></span> }
 ];
 
 const PUBLICATIONS = [
@@ -513,9 +396,6 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Contact Form State
-  const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
-
   // Gallery State
   const [galleryFilter, setGalleryFilter] = useState('All');
   const [selectedArt, setSelectedArt] = useState(null);
@@ -523,25 +403,15 @@ export default function Portfolio() {
   const [showReference, setShowReference] = useState(false);
   const [artViewMode, setArtViewMode] = useState('dynamic'); // 'static' | 'dynamic'
 
-  const handleContactSubmit = (e) => {
-    e.preventDefault();
-    const { name, email, message } = contactForm;
-    const subject = `Contact from Portfolio Website`;
-    const body = `Hi Ahmad,\n\n${message}\n\nBest regards,\n${name}\n${email}`;
-    window.location.href = `mailto:${USER_DATA.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const openArtwork = (item) => {
+    setArtAlignment('medium');
+    setShowReference(false);
+    setArtViewMode('dynamic');
+    setSelectedArt(item);
   };
-
-  useEffect(() => {
-    if (!selectedArt) {
-      setArtAlignment('medium');
-      setShowReference(false);
-      setArtViewMode('dynamic'); // Reset to dynamic when closing/opening
-    }
-  }, [selectedArt]);
 
   const navItems = [
     { id: 'home', label: 'Home', icon: <MapPin size={20} /> },
-    { id: 'publications', label: 'Publications', icon: <BookOpen size={20} /> },
     { id: 'cv', label: 'CV', icon: <Award size={20} /> },
     { id: 'gallery', label: 'Gallery', icon: <ImageIcon size={20} /> },
   ];
@@ -584,41 +454,6 @@ export default function Portfolio() {
                   </div>
                 </div>
 
-                {/* News Section */}
-                <div className="space-y-6">
-                  <SectionTitle>Latest News</SectionTitle>
-                  <div className="h-80 overflow-y-auto pr-2 custom-scrollbar bg-white/50 backdrop-blur-sm p-4 rounded-xl border border-slate-200">
-                    {NEWS.map((item, idx) => (
-                      <div key={idx} className="flex flex-col sm:flex-row gap-2 sm:gap-6 py-3 border-b border-slate-200 last:border-0">
-                        <span className="font-mono text-slate-500 text-sm w-24 shrink-0 pt-0.5">{item.date}</span>
-                        <span className="text-slate-800 font-medium">{item.text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Selected Publications (Minimal Text Only) */}
-                <div className="space-y-8">
-                  <SectionTitle>Selected Publications</SectionTitle>
-                  <div className="space-y-6">
-                    {PUBLICATIONS.filter(p => p.selected).map(pub => (
-                      <div key={pub.id} className="flex flex-col space-y-2 pb-6 border-b border-slate-100 last:border-0">
-                         <h4 className="text-lg font-bold text-slate-900 leading-tight">{pub.title}</h4>
-                         <p className="text-slate-600 text-sm">{pub.authors}</p>
-                         <div className="flex flex-wrap gap-2 items-center">
-                            <span className="text-violet-900 font-bold text-xs uppercase">{pub.venue}</span>
-                            <span className="text-slate-400 text-xs font-mono">• {pub.year}</span>
-                         </div>
-                         <div className="flex gap-3 pt-1">
-                            {pub.links.pdf && <a href={pub.links.pdf} target="_blank" rel="noreferrer" className="text-xs font-bold text-slate-500 hover:text-violet-900 flex items-center gap-1 uppercase tracking-wide"><FileText size={14} /> PDF</a>}
-                            {pub.links.code && <a href={pub.links.code} target="_blank" rel="noreferrer" className="text-xs font-bold text-slate-500 hover:text-violet-900 flex items-center gap-1 uppercase tracking-wide"><Code size={14} /> Code</a>}
-                            {pub.links.website && <a href={pub.links.website} target="_blank" rel="noreferrer" className="text-xs font-bold text-slate-500 hover:text-violet-900 flex items-center gap-1 uppercase tracking-wide"><ExternalLink size={14} /> Website</a>}
-                         </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
                 {/* Reviewing */}
                 <div className="space-y-6">
                   <SectionTitle>Reviewing</SectionTitle>
@@ -654,16 +489,8 @@ export default function Portfolio() {
                     </div>
                   </div>
                   
-                  <div className="space-y-6 pt-6 border-t border-slate-200">
-                    <h3 className="text-lg font-bold text-slate-900 uppercase tracking-wider">Contact</h3>
-                    <form onSubmit={handleContactSubmit} className="flex flex-col gap-4">
-                       <input type="text" placeholder="Name" value={contactForm.name} onChange={(e) => setContactForm({...contactForm, name: e.target.value})} className="p-3 bg-white/50 backdrop-blur-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-900 text-sm" />
-                       <input type="email" placeholder="Email" value={contactForm.email} onChange={(e) => setContactForm({...contactForm, email: e.target.value})} className="p-3 bg-white/50 backdrop-blur-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-900 text-sm" />
-                       <textarea placeholder="Message..." rows={3} value={contactForm.message} onChange={(e) => setContactForm({...contactForm, message: e.target.value})} className="p-3 bg-white/50 backdrop-blur-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-900 text-sm"></textarea>
-                       <button type="submit" className="flex items-center justify-center gap-2 py-3 px-4 w-full bg-violet-900 hover:bg-violet-800 text-white font-bold rounded-lg transition-colors shadow-md">
-                         <Mail size={16} /> Send Email
-                       </button>
-                    </form>
+                  <div className="pt-6 border-t border-slate-300 text-slate-800 leading-relaxed">
+                    <p>Feel free to contact me at <a href={`mailto:${USER_DATA.email}`} className="font-bold underline">{USER_DATA.email}</a>.</p>
                   </div>
               </div>
             </div>
@@ -741,7 +568,7 @@ export default function Portfolio() {
           </div>
         );
 
-      case 'gallery':
+      case 'gallery': {
         const filteredItems = galleryFilter === 'All' 
           ? GALLERY_ITEMS 
           : GALLERY_ITEMS.filter(item => item.category === galleryFilter);
@@ -775,7 +602,7 @@ export default function Portfolio() {
                {filteredItems.map(item => (
                  <div 
                    key={item.id} 
-                   onClick={() => setSelectedArt(item)}
+                   onClick={() => openArtwork(item)}
                    className="break-inside-avoid bg-white border border-slate-200 rounded-xl overflow-hidden cursor-pointer group hover:border-violet-400 hover:shadow-lg transition-all"
                  >
                     <div className={`w-full h-80 ${item.color} flex items-center justify-center relative`}>
@@ -804,6 +631,7 @@ export default function Portfolio() {
             </div>
           </div>
         );
+      }
 
       default:
         return null;
@@ -812,8 +640,6 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen transition-colors duration-300 bg-transparent relative">
-      <LossLandscapeBackground />
-      
       {/* Mobile Header */}
       <div className="md:hidden flex justify-between items-center p-4 bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
         <span className="font-bold text-lg">Ahmad Arrabi</span>
