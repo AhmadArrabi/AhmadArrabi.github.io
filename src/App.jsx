@@ -15,7 +15,7 @@ const USER_DATA = {
   location: "Burlington, VT",
   bio: (
     <span>
-      I am a 4th year computer science Ph.D. student at the <a href="https://myuvm.uvm.edu/" target="_blank" rel="noreferrer" className="font-semibold text-slate-800 hover:underline">University of Vermont</a>, working with <a href="https://www.wshahaigroup.com/" target="_blank" rel="noreferrer" className="font-semibold text-slate-800 hover:underline">Prof. Safwan Wshah</a>. My research interest is in <b>generative models</b>, <b>cross-view synthesis</b>, and <b>computer assisted interventions</b>.
+      I am a 4th year computer science Ph.D. student at the <a href="https://myuvm.uvm.edu/" target="_blank" rel="noreferrer" className="text-slate-800 hover:underline">University of Vermont</a>, working with <a href="https://www.wshahaigroup.com/" target="_blank" rel="noreferrer" className="text-slate-800 hover:underline">Prof. Safwan Wshah</a>. My research interest is in <b>generative models</b>, <b>cross-view synthesis</b>, and <b>computer assisted interventions</b>.
     </span>
   ),
   bio_secondary: (
@@ -419,12 +419,14 @@ export default function Portfolio() {
                 <div className="space-y-4">
                   <div>
                     <h1 className="text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">{USER_DATA.name}</h1>
-                    <p className="text-xl text-slate-800 font-medium mt-2">PhD Student in Computer Science at the University of Vermont</p>
                   </div>
-                  <div className="text-slate-800 leading-relaxed text-lg space-y-4">
+                  <div className="text-slate-800 leading-relaxed text-base space-y-3">
                     <p>{USER_DATA.bio}</p>
                     <p>{USER_DATA.bio_secondary}</p>
-                    <p className="text-blue-700">I'll be graduating in Summer 2027! Looking for research positions in surgical automation!</p>
+                    <p className="text-blue-600 font-bold flex items-center gap-2">
+                      I'll be graduating in Summer 2027! Looking for research positions in surgical automation!
+                      <img src="/assets/main_page/winking-smile.png" alt="Winking smile" className="w-6 h-6 object-contain wink-emoji" />
+                    </p>
                   </div>
                 </div>
 
