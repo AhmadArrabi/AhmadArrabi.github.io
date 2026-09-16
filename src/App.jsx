@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { 
-  MapPin, Github, Linkedin, 
-  FileText, GraduationCap, Link as LinkIcon, 
-  Menu, X, ExternalLink, Code, Database, 
-  ChevronRight, Award, BookOpen, Layers, Image as ImageIcon,
-  PlayCircle, Star, GitFork, Eye, EyeOff, Sliders, Check, Maximize2,
-  Zap, Image, Film
+  Github, Linkedin, FileText, GraduationCap,
+  X, ExternalLink, Code, BookOpen, Image as ImageIcon,
+  PlayCircle, Eye, EyeOff, Sliders
 } from 'lucide-react';
 
 // --- DATA CONFIGURATION ---
@@ -394,8 +391,6 @@ const Badge = ({ children, type = "default" }) => {
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('home');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   // Gallery State
   const [galleryFilter, setGalleryFilter] = useState('All');
   const [selectedArt, setSelectedArt] = useState(null);
@@ -410,24 +405,18 @@ export default function Portfolio() {
     setSelectedArt(item);
   };
 
-  const navItems = [
-    { id: 'home', label: 'Home', icon: <MapPin size={20} /> },
-    { id: 'cv', label: 'CV', icon: <Award size={20} /> },
-    { id: 'gallery', label: 'Gallery', icon: <ImageIcon size={20} /> },
-  ];
-
   const renderContent = () => {
     switch(activeSection) {
       case 'home':
         return (
-          <div className="animate-in fade-in duration-500 max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
               
               {/* MAIN COLUMN */}
-              <div className="lg:col-span-8 space-y-12">
+              <div className="lg:col-span-8 space-y-8">
                 
                 {/* Hero / Bio */}
-                <div className="space-y-6">
+                <div className="space-y-4">
                   <div>
                     <h1 className="text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">{USER_DATA.name}</h1>
                     <p className="text-xl text-violet-900 font-medium mt-2">{USER_DATA.title}</p>
@@ -445,7 +434,8 @@ export default function Portfolio() {
                       { href: USER_DATA.links.linkedin, icon: <Linkedin size={20} />, label: "LinkedIn" },
                       { href: USER_DATA.links.scholar, icon: <GraduationCap size={20} />, label: "Scholar" },
                       { href: USER_DATA.links.orcid, icon: <FileText size={20} />, label: "ORCID" },
-                      { href: USER_DATA.links.semantic, icon: <BookOpen size={20} />, label: "Semantic Scholar" }
+                      { href: USER_DATA.links.semantic, icon: <BookOpen size={20} />, label: "Semantic Scholar" },
+                      { href: "./assets/arrabi_cv.pdf", icon: <FileText size={20} />, label: "CV" }
                     ].map((link, idx) => (
                       <a key={idx} href={link.href} target="_blank" rel="noreferrer" className="bg-white/50 hover:bg-slate-100 backdrop-blur-sm text-slate-700 transition-colors flex items-center gap-2 font-bold text-sm px-4 py-2.5 rounded-lg border border-slate-200">
                         {link.icon} {link.label}
@@ -466,10 +456,27 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
+
+                <section className="border-t border-slate-200 pt-6">
+                  <SectionTitle>Gallery</SectionTitle>
+                  <p className="text-slate-700 leading-relaxed mb-4">
+                    Working with diffusion models leads to some weirdly unplanned generations. Enjoy the following curated collection of outputs, artifacts, and generally amusing images from my experiments.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveSection('gallery');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="border border-slate-400 px-4 py-2 text-sm font-bold"
+                  >
+                    View Gallery
+                  </button>
+                </section>
               </div>
 
               {/* SIDE COLUMN */}
-              <div className="lg:col-span-4 space-y-10">
+              <div className="lg:col-span-4 space-y-8">
                  {/* Profile Image - Clean */}
                  <div className="w-full aspect-square relative mx-auto lg:mx-0 max-w-sm rounded-xl overflow-hidden shadow-md">
                     <div className="w-full h-full bg-slate-100">
@@ -484,7 +491,7 @@ export default function Portfolio() {
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {RESEARCH_INTERESTS.map((interest, idx) => (
-                        <Badge key={idx} type="primary">{interest}</Badge>
+                        <Badge key={idx} type="outline">{interest}</Badge>
                       ))}
                     </div>
                   </div>
@@ -639,90 +646,13 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen transition-colors duration-300 bg-transparent relative">
-      {/* Mobile Header */}
-      <div className="md:hidden flex justify-between items-center p-4 bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
-        <span className="font-bold text-lg">Ahmad Arrabi</span>
-        <div className="flex items-center gap-2">
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-lg bg-slate-50 text-slate-600">
-             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </div>
-
-      <div className="flex flex-col md:flex-row min-h-screen relative z-10">
-        
-        {/* Sidebar Navigation */}
-        <aside className="hidden md:flex fixed left-0 top-0 z-50 h-screen w-20 hover:w-64 transition-all duration-300 ease-in-out flex-col justify-between group bg-white/90 backdrop-blur-md border-r border-slate-200 shadow-xl">
-          <div className="flex flex-col w-full h-full overflow-hidden">
-            <div className="p-6 mb-2 flex items-center overflow-hidden whitespace-nowrap">
-               <div className="w-8 h-8 flex shrink-0 items-center justify-center bg-violet-900 text-white rounded-lg font-bold text-xl shadow-lg shadow-violet-900/30">AA</div>
-               <div className="ml-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h2 className="font-bold text-base text-slate-900 uppercase tracking-wider">{USER_DATA.name}</h2>
-               </div>
-            </div>
-
-            <nav className="flex-1 px-4 space-y-3">
-              {navItems.map(item => (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    setActiveSection(item.id);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className={`w-full flex items-center px-2 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all duration-200 whitespace-nowrap overflow-hidden
-                    ${activeSection === item.id 
-                      ? 'bg-violet-50 text-violet-900' 
-                      : 'text-slate-400 hover:text-slate-900 hover:bg-slate-50'
-                    }
-                  `}
-                >
-                  <span className="shrink-0">{item.icon}</span>
-                  <span className="ml-6 opacity-0 group-hover:opacity-100 transition-opacity duration-200">{item.label}</span>
-                </button>
-              ))}
-            </nav>
-          </div>
-        </aside>
-
-        {/* Mobile Drawer */}
-        <aside className={`md:hidden fixed top-0 h-screen w-64 bg-white/95 backdrop-blur-md border-r border-slate-200 p-6 z-30 transition-transform duration-300 ease-in-out flex flex-col justify-between ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-           <div>
-             <div className="mb-12">
-               <div className="w-10 h-10 bg-violet-900 rounded-lg flex items-center justify-center text-white font-bold text-xl mb-4 shadow-lg">AA</div>
-               <h2 className="font-bold text-slate-900">{USER_DATA.name}</h2>
-             </div>
-             <nav className="space-y-4">
-              {navItems.map(item => (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    setActiveSection(item.id);
-                    setMobileMenuOpen(false);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className={`w-full flex items-center gap-4 px-2 py-2 text-sm font-bold uppercase tracking-widest ${activeSection === item.id ? 'text-violet-900' : 'text-slate-400'}`}
-                >
-                  {item.icon} {item.label}
-                </button>
-              ))}
-             </nav>
-           </div>
-        </aside>
-
-        {/* Overlay for mobile menu */}
-        {mobileMenuOpen && (
-          <div className="fixed inset-0 bg-slate-900/50 z-20 md:hidden backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
-        )}
-
-        {/* Main Content Area */}
-        <main className="flex-1 p-8 md:p-16 md:ml-20 overflow-x-hidden transition-all duration-300">
-           {renderContent()}
-           <footer className="mt-32 pt-12 border-t border-slate-200 text-center text-slate-400 text-sm font-mono uppercase tracking-widest">
-              <p>&copy; {new Date().getFullYear()} Ahmad Arrabi. Built with React & Tailwind.</p>
-           </footer>
-        </main>
-      </div>
+    <div className="min-h-screen">
+      <main className="max-w-6xl mx-auto px-5 py-8 md:px-8 md:py-10">
+        {renderContent()}
+        <footer className="mt-16 pt-6 border-t border-slate-200 text-center text-slate-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} Ahmad Arrabi.</p>
+        </footer>
+      </main>
 
       {/* GALLERY MODAL - RENDERED OUTSIDE OF MAIN CONTENT FOR FULL SCREEN COVERAGE */}
       {selectedArt && (

@@ -5,35 +5,18 @@
 /* A restrained, print-era academic style. */
 :root {
   font-family: "Times New Roman", Times, serif;
-  color: #171717;
-  background: #f7f3e8;
   font-synthesis: none;
-}
-
-html {
-  background: #f7f3e8;
 }
 
 body {
   min-width: 320px;
   margin: 0;
-  background: #f7f3e8;
-  color: #171717;
 }
 
 button,
 input,
 textarea {
   font: inherit;
-}
-
-a {
-  color: #003c78;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #7a1f1f;
 }
 
 /* The existing utility layout remains responsive, while its decorative treatment
@@ -44,30 +27,6 @@ a:hover {
   border-radius: 0 !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
-}
-
-#root .bg-white,
-#root [class*="bg-white/"] {
-  background-color: #fffdf7 !important;
-}
-
-#root .bg-slate-900,
-#root .bg-violet-900 {
-  background-color: #1d3557 !important;
-}
-
-#root .text-slate-900,
-#root .text-slate-800 {
-  color: #171717 !important;
-}
-
-#root .text-violet-900 {
-  color: #7a1f1f !important;
-}
-
-#root .border-slate-200,
-#root .border-slate-300 {
-  border-color: #8d887d !important;
 }
 
 #root button,
