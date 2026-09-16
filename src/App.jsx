@@ -419,14 +419,12 @@ export default function Portfolio() {
                 <div className="space-y-4">
                   <div>
                     <h1 className="text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">{USER_DATA.name}</h1>
-                    <p className="text-xl text-slate-800 font-medium mt-2">{USER_DATA.title}</p>
-                    <p className="text-slate-500 flex items-center gap-2 mt-2 text-lg">
-                       <GraduationCap size={20} /> {USER_DATA.university}
-                    </p>
+                    <p className="text-xl text-slate-800 font-medium mt-2">PhD Student in Computer Science at the University of Vermont</p>
                   </div>
                   <div className="text-slate-800 leading-relaxed text-lg space-y-4">
                     <p>{USER_DATA.bio}</p>
                     <p>{USER_DATA.bio_secondary}</p>
+                    <p className="text-blue-700">I'll be graduating in Summer 2027! Looking for research positions in surgical automation!</p>
                   </div>
                 </div>
 
@@ -470,17 +468,17 @@ export default function Portfolio() {
                     </div>
                  </div>
 
-                 <div className="flex flex-wrap gap-2">
+                 <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm">
                     {[
-                      { href: USER_DATA.links.github, icon: <Github size={18} />, label: "GitHub" },
-                      { href: USER_DATA.links.linkedin, icon: <Linkedin size={18} />, label: "LinkedIn" },
-                      { href: USER_DATA.links.scholar, icon: <GraduationCap size={18} />, label: "Scholar" },
-                      { href: USER_DATA.links.orcid, icon: <FileText size={18} />, label: "ORCID" },
-                      { href: USER_DATA.links.semantic, icon: <BookOpen size={18} />, label: "Semantic Scholar" },
-                      { href: "./assets/arrabi_cv.pdf", icon: <FileText size={18} />, label: "CV" }
+                      { href: "./assets/arrabi_cv.pdf", label: "CV (PDF)" },
+                      { href: USER_DATA.links.github, label: "GitHub" },
+                      { href: USER_DATA.links.linkedin, label: "LinkedIn" },
+                      { href: USER_DATA.links.scholar, label: "Google Scholar" },
+                      { href: USER_DATA.links.orcid, label: "ORCID" },
+                      { href: USER_DATA.links.semantic, label: "Semantic Scholar" }
                     ].map((link) => (
-                      <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="border border-slate-300 px-2 py-1 text-sm text-slate-700 flex items-center gap-1">
-                        {link.icon} {link.label}
+                      <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="text-blue-700 underline hover:text-blue-900">
+                        {link.label}
                       </a>
                     ))}
                   </div>
