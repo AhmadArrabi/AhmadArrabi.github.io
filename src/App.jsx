@@ -15,7 +15,7 @@ const USER_DATA = {
   location: "Burlington, VT",
   bio: (
     <span>
-      I am a 4th year computer science Ph.D. student at the <a href="https://myuvm.uvm.edu/" target="_blank" rel="noreferrer" className="font-semibold text-violet-900 hover:underline">University of Vermont</a>, working with <a href="https://www.wshahaigroup.com/" target="_blank" rel="noreferrer" className="font-semibold text-violet-900 hover:underline">Prof. Safwan Wshah</a>. My research interest is in <b>generative models</b>, <b>cross-view synthesis</b>, and <b>computer assisted interventions</b>.
+      I am a 4th year computer science Ph.D. student at the <a href="https://myuvm.uvm.edu/" target="_blank" rel="noreferrer" className="font-semibold text-slate-800 hover:underline">University of Vermont</a>, working with <a href="https://www.wshahaigroup.com/" target="_blank" rel="noreferrer" className="font-semibold text-slate-800 hover:underline">Prof. Safwan Wshah</a>. My research interest is in <b>generative models</b>, <b>cross-view synthesis</b>, and <b>computer assisted interventions</b>.
     </span>
   ),
   bio_secondary: (
@@ -363,7 +363,7 @@ const GALLERY_ITEMS = [
 
 const SectionTitle = ({ children }) => (
   <h2 className="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-3">
-    <span className="w-1.5 h-8 bg-violet-900 rounded-sm inline-block"></span>
+    <span className="w-1.5 h-8 bg-slate-800 rounded-sm inline-block"></span>
     {children}
   </h2>
 );
@@ -377,7 +377,7 @@ const Card = ({ children, className = "" }) => (
 const Badge = ({ children, type = "default" }) => {
   const styles = {
     default: "bg-slate-100 text-slate-700",
-    primary: "bg-violet-100 text-violet-900",
+    primary: "bg-slate-100 text-slate-800",
     outline: "border border-slate-300 text-slate-600"
   };
   return (
@@ -419,7 +419,7 @@ export default function Portfolio() {
                 <div className="space-y-4">
                   <div>
                     <h1 className="text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">{USER_DATA.name}</h1>
-                    <p className="text-xl text-violet-900 font-medium mt-2">{USER_DATA.title}</p>
+                    <p className="text-xl text-slate-800 font-medium mt-2">{USER_DATA.title}</p>
                     <p className="text-slate-500 flex items-center gap-2 mt-2 text-lg">
                        <GraduationCap size={20} /> {USER_DATA.university}
                     </p>
@@ -428,38 +428,24 @@ export default function Portfolio() {
                     <p>{USER_DATA.bio}</p>
                     <p>{USER_DATA.bio_secondary}</p>
                   </div>
-                  <div className="flex flex-wrap gap-3 pt-4">
-                    {[
-                      { href: USER_DATA.links.github, icon: <Github size={20} />, label: "GitHub" },
-                      { href: USER_DATA.links.linkedin, icon: <Linkedin size={20} />, label: "LinkedIn" },
-                      { href: USER_DATA.links.scholar, icon: <GraduationCap size={20} />, label: "Scholar" },
-                      { href: USER_DATA.links.orcid, icon: <FileText size={20} />, label: "ORCID" },
-                      { href: USER_DATA.links.semantic, icon: <BookOpen size={20} />, label: "Semantic Scholar" },
-                      { href: "./assets/arrabi_cv.pdf", icon: <FileText size={20} />, label: "CV" }
-                    ].map((link, idx) => (
-                      <a key={idx} href={link.href} target="_blank" rel="noreferrer" className="bg-white/50 hover:bg-slate-100 backdrop-blur-sm text-slate-700 transition-colors flex items-center gap-2 font-bold text-sm px-4 py-2.5 rounded-lg border border-slate-200">
-                        {link.icon} {link.label}
-                      </a>
-                    ))}
-                  </div>
                 </div>
+
+                <section className="space-y-2">
+                  <h2 className="text-lg font-bold text-slate-900">Research Interests</h2>
+                  <ul className="list-disc pl-5 space-y-1 text-slate-700 leading-snug">
+                    {RESEARCH_INTERESTS.map((interest) => <li key={interest}>{interest}</li>)}
+                  </ul>
+                </section>
 
                 {/* Reviewing */}
-                <div className="space-y-6">
-                  <SectionTitle>Reviewing</SectionTitle>
-                  <div className="flex flex-col gap-3">
-                    <p className="text-slate-600">I have served as a reviewer for:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {USER_DATA.reviews.map((rev, idx) => (
-                        <Badge key={idx} type="outline">{rev}</Badge>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <section className="space-y-2 border-t border-slate-200 pt-4">
+                  <h2 className="text-lg font-bold text-slate-900">Reviewing</h2>
+                  <p className="text-sm text-slate-600 leading-snug">I have served as a reviewer for: {USER_DATA.reviews.join(', ')}.</p>
+                </section>
 
-                <section className="border-t border-slate-200 pt-6">
-                  <SectionTitle>Gallery</SectionTitle>
-                  <p className="text-slate-700 leading-relaxed mb-4">
+                <section className="border-t border-slate-200 pt-4 space-y-2">
+                  <h2 className="text-lg font-bold text-slate-900">Gallery</h2>
+                  <p className="text-sm text-slate-700 leading-snug">
                     Working with diffusion models leads to some weirdly unplanned generations. Enjoy the following curated collection of outputs, artifacts, and generally amusing images from my experiments.
                   </p>
                   <button
@@ -468,7 +454,7 @@ export default function Portfolio() {
                       setActiveSection('gallery');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="border border-slate-400 px-4 py-2 text-sm font-bold"
+                    className="border border-slate-400 px-3 py-1 text-sm"
                   >
                     View Gallery
                   </button>
@@ -476,7 +462,7 @@ export default function Portfolio() {
               </div>
 
               {/* SIDE COLUMN */}
-              <div className="lg:col-span-4 space-y-8">
+              <div className="lg:col-span-4 space-y-5">
                  {/* Profile Image - Clean */}
                  <div className="w-full aspect-square relative mx-auto lg:mx-0 max-w-sm rounded-xl overflow-hidden shadow-md">
                     <div className="w-full h-full bg-slate-100">
@@ -484,19 +470,22 @@ export default function Portfolio() {
                     </div>
                  </div>
 
-                 <div className="space-y-6">
-                    <h3 className="text-lg font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-violet-900"></span>
-                      Research Interests
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {RESEARCH_INTERESTS.map((interest, idx) => (
-                        <Badge key={idx} type="outline">{interest}</Badge>
-                      ))}
-                    </div>
+                 <div className="flex flex-wrap gap-2">
+                    {[
+                      { href: USER_DATA.links.github, icon: <Github size={18} />, label: "GitHub" },
+                      { href: USER_DATA.links.linkedin, icon: <Linkedin size={18} />, label: "LinkedIn" },
+                      { href: USER_DATA.links.scholar, icon: <GraduationCap size={18} />, label: "Scholar" },
+                      { href: USER_DATA.links.orcid, icon: <FileText size={18} />, label: "ORCID" },
+                      { href: USER_DATA.links.semantic, icon: <BookOpen size={18} />, label: "Semantic Scholar" },
+                      { href: "./assets/arrabi_cv.pdf", icon: <FileText size={18} />, label: "CV" }
+                    ].map((link) => (
+                      <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="border border-slate-300 px-2 py-1 text-sm text-slate-700 flex items-center gap-1">
+                        {link.icon} {link.label}
+                      </a>
+                    ))}
                   </div>
                   
-                  <div className="pt-6 border-t border-slate-300 text-slate-800 leading-relaxed">
+                  <div className="pt-4 border-t border-slate-300 text-slate-800 leading-relaxed">
                     <p>Feel free to contact me at <a href={`mailto:${USER_DATA.email}`} className="font-bold underline">{USER_DATA.email}</a>.</p>
                   </div>
               </div>
@@ -524,7 +513,7 @@ export default function Portfolio() {
                      <h3 className="text-xl font-bold text-slate-900 leading-tight">{pub.title}</h3>
                      <p className="text-slate-600 text-sm font-medium">{pub.authors}</p>
                      <div className="flex flex-wrap gap-2 items-center">
-                        <span className="bg-violet-100 text-violet-900 text-xs font-bold px-2 py-1 rounded-md">{pub.venue}</span>
+                        <span className="bg-slate-100 text-slate-800 text-xs font-bold px-2 py-1 rounded-md">{pub.venue}</span>
                         <span className="text-slate-500 text-xs font-mono">{pub.year}</span>
                      </div>
                      
@@ -560,10 +549,10 @@ export default function Portfolio() {
             <div className="space-y-16">
                {EXPERIENCES.map((exp) => (
                  <div key={exp.id} className="relative pl-8 border-l-2 border-slate-200">
-                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-violet-900 border-4 border-white"></div>
+                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-800 border-4 border-white"></div>
                     <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
                       <h3 className="text-2xl font-bold text-slate-900">{exp.role}</h3>
-                      <span className="text-sm font-mono text-violet-900 font-bold bg-violet-100 px-3 py-1 rounded-md">{exp.period}</span>
+                      <span className="text-sm font-mono text-slate-800 font-bold bg-slate-100 px-3 py-1 rounded-md">{exp.period}</span>
                     </div>
                     <div className="text-lg font-medium text-slate-700 mb-4">{exp.org}</div>
                     <div className="text-slate-600 leading-relaxed text-lg">
@@ -581,23 +570,24 @@ export default function Portfolio() {
           : GALLERY_ITEMS.filter(item => item.category === galleryFilter);
 
         return (
-          <div className="space-y-12 animate-in fade-in duration-500 max-w-6xl mx-auto">
-            <div className="text-center max-w-3xl mx-auto space-y-6">
-               <h2 className="text-4xl font-bold text-slate-900">Gallery</h2>
-               <p className="text-xl text-slate-700 leading-relaxed">
+          <div className="space-y-8 max-w-6xl">
+            <div className="max-w-3xl space-y-3">
+               <button type="button" onClick={() => setActiveSection('home')} className="border border-slate-400 px-3 py-1 text-sm">← Back to home</button>
+               <h2 className="text-2xl font-bold text-slate-900">Gallery</h2>
+               <p className="text-slate-700 leading-relaxed">
                  Working with diffusion models leads to some weirdly unplanned generations. Enjoy the following curated collection of outputs, artifacts, and generally amusing images from my experiments.
                </p>
             </div>
 
-            <div className="flex justify-center gap-4 mb-12">
+            <div className="flex gap-2">
               {['All', 'Artwork', 'Cool Generations'].map(filter => (
                 <button 
                   key={filter}
                   onClick={() => setGalleryFilter(filter)}
-                  className={`px-6 py-2.5 text-sm font-bold uppercase tracking-widest rounded-lg transition-all ${
+                  className={`px-3 py-1 text-sm border ${
                     galleryFilter === filter 
-                    ? 'bg-violet-900 text-white shadow-md' 
-                    : 'bg-white text-slate-500 border border-slate-200 hover:border-violet-300'
+                    ? 'bg-slate-800 text-white shadow-md' 
+                    : 'bg-white text-slate-500 border border-slate-200 hover:border-slate-400'
                   }`}
                 >
                   {filter}
@@ -605,12 +595,12 @@ export default function Portfolio() {
               ))}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                {filteredItems.map(item => (
                  <div 
                    key={item.id} 
                    onClick={() => openArtwork(item)}
-                   className="break-inside-avoid bg-white border border-slate-200 rounded-xl overflow-hidden cursor-pointer group hover:border-violet-400 hover:shadow-lg transition-all"
+                   className="break-inside-avoid bg-white border border-slate-200 rounded-xl overflow-hidden cursor-pointer group hover:border-slate-400 hover:shadow-lg transition-all"
                  >
                     <div className={`w-full h-80 ${item.color} flex items-center justify-center relative`}>
                         {item.assets && item.assets.medium ? (
@@ -647,7 +637,7 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen">
-      <main className="max-w-6xl mx-auto px-5 py-8 md:px-8 md:py-10">
+      <main className="max-w-6xl ml-0 px-6 py-8 md:ml-10 md:px-8 md:py-10">
         {renderContent()}
         <footer className="mt-16 pt-6 border-t border-slate-200 text-center text-slate-500 text-sm">
           <p>&copy; {new Date().getFullYear()} Ahmad Arrabi.</p>
@@ -732,13 +722,13 @@ export default function Portfolio() {
                       <div className="flex items-center justify-between bg-slate-100 p-1 rounded-lg">
                          <button 
                            onClick={() => setArtViewMode('dynamic')}
-                           className={`flex-1 py-1.5 text-xs font-bold uppercase tracking-widest rounded-md transition-all ${artViewMode === 'dynamic' ? 'bg-white text-violet-900 shadow-sm' : 'text-slate-500'}`}
+                           className={`flex-1 py-1.5 text-xs font-bold uppercase tracking-widest rounded-md transition-all ${artViewMode === 'dynamic' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500'}`}
                          >
                            Dynamic
                          </button>
                          <button 
                            onClick={() => setArtViewMode('static')}
-                           className={`flex-1 py-1.5 text-xs font-bold uppercase tracking-widest rounded-md transition-all ${artViewMode === 'static' ? 'bg-white text-violet-900 shadow-sm' : 'text-slate-500'}`}
+                           className={`flex-1 py-1.5 text-xs font-bold uppercase tracking-widest rounded-md transition-all ${artViewMode === 'static' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500'}`}
                          >
                            Static
                          </button>
@@ -746,19 +736,19 @@ export default function Portfolio() {
 
                       <div className="flex items-center justify-between">
                          <span className="text-sm font-bold text-slate-900 uppercase tracking-widest">Compare Reference</span>
-                         <button onClick={() => setShowReference(!showReference)} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest transition-all border ${showReference ? 'bg-violet-900 text-white border-violet-900' : 'bg-transparent text-slate-500 border-slate-300'}`}>
+                         <button onClick={() => setShowReference(!showReference)} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest transition-all border ${showReference ? 'bg-slate-800 text-white border-slate-800' : 'bg-transparent text-slate-500 border-slate-300'}`}>
                            {showReference ? <Eye size={14} /> : <EyeOff size={14} />} {showReference ? 'ON' : 'OFF'}
                          </button>
                       </div>
 
                       <div className="transition-opacity duration-200 opacity-100">
                          <div className="flex items-center gap-2 mb-4">
-                            <Sliders size={16} className="text-violet-900" />
+                            <Sliders size={16} className="text-slate-800" />
                             <span className="text-sm font-bold text-slate-900 uppercase tracking-widest">Alignment</span>
                          </div>
                          <div className="grid grid-cols-2 gap-3">
                             {['abstract', 'weak', 'medium', 'strong'].map((align) => (
-                               <button key={align} onClick={() => setArtAlignment(align)} className={`px-4 py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all border ${artAlignment === align ? 'bg-violet-900 text-white border-violet-900 shadow-md' : 'bg-transparent text-slate-500 border-slate-200 hover:border-violet-400'}`}>{align}</button>
+                               <button key={align} onClick={() => setArtAlignment(align)} className={`px-4 py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all border ${artAlignment === align ? 'bg-slate-800 text-white border-slate-800 shadow-md' : 'bg-transparent text-slate-500 border-slate-200 hover:border-slate-400'}`}>{align}</button>
                             ))}
                          </div>
                       </div>
@@ -768,7 +758,7 @@ export default function Portfolio() {
                 {/* Application specific controls */}
                 {selectedArt.category === 'Applications' && (
                     <div className="mt-auto pt-8 border-t border-slate-200">
-                       <a href="#" className="flex items-center justify-center gap-3 w-full py-4 bg-violet-900 hover:bg-violet-800 text-white rounded-xl font-bold uppercase tracking-widest transition-colors shadow-lg">
+                       <a href="#" className="flex items-center justify-center gap-3 w-full py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold uppercase tracking-widest transition-colors shadow-lg">
                           <PlayCircle size={18} /> View Live Demo
                        </a>
                     </div>

@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* A restrained, print-era academic style. */
+/* A restrained, readable academic style. */
 :root {
-  font-family: "Times New Roman", Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-synthesis: none;
 }
 
@@ -23,7 +23,7 @@ textarea {
    is deliberately made flat, square, and easy to read. */
 #root,
 #root * {
-  font-family: "Times New Roman", Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
   border-radius: 0 !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
