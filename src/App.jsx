@@ -473,9 +473,7 @@ export default function Portfolio() {
                       { href: "./assets/arrabi_cv.pdf", label: "CV (PDF)" },
                       { href: USER_DATA.links.github, label: "GitHub" },
                       { href: USER_DATA.links.linkedin, label: "LinkedIn" },
-                      { href: USER_DATA.links.scholar, label: "Google Scholar" },
-                      { href: USER_DATA.links.orcid, label: "ORCID" },
-                      { href: USER_DATA.links.semantic, label: "Semantic Scholar" }
+                      { href: USER_DATA.links.scholar, label: "Google Scholar" }
                     ].map((link) => (
                       <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="text-blue-700 underline hover:text-blue-900">
                         {link.label}
