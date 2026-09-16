@@ -423,9 +423,9 @@ export default function Portfolio() {
                   <div className="text-slate-800 leading-relaxed text-base space-y-3">
                     <p>{USER_DATA.bio}</p>
                     <p>{USER_DATA.bio_secondary}</p>
-                    <p className="text-blue-600 font-bold flex items-center gap-2">
+                    <p className="text-blue-600 font-bold">
                       I'll be graduating in Summer 2027! Looking for research positions in surgical automation!
-                      <img src="/assets/main_page/winking-smile.png" alt="Winking smile" className="w-6 h-6 object-contain wink-emoji" />
+                      <img src="/assets/main_page/winking-smile.png" alt="Winking smile" className="inline-block w-5 h-5 object-contain align-text-bottom ml-1 wink-emoji" />
                     </p>
                   </div>
                 </div>
