@@ -31,7 +31,7 @@ const USER_DATA = {
     semantic: "https://www.semanticscholar.org/author/Ahmad-Arrabi/2315298518"
   },
   reviews: [
-    "IPCAI 2026", "ECAI 2025", "IJCARS", "Pattern Recognition", "Pattern Recognition Letters"
+    "MICCAI 2026", "IPCAI 2026", "ECAI 2025", "IJCARS", "Pattern Recognition", "Pattern Recognition Letters"
   ]
 };
 
