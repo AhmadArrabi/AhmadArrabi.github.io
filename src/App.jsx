@@ -15,12 +15,12 @@ const USER_DATA = {
   location: "Burlington, VT",
   bio: (
     <span>
-      I am a 4th year computer science Ph.D. student at the <a href="https://myuvm.uvm.edu/" target="_blank" rel="noreferrer" className="text-slate-800 hover:underline">University of Vermont</a>, working with <a href="https://www.wshahaigroup.com/" target="_blank" rel="noreferrer" className="text-slate-800 hover:underline">Prof. Safwan Wshah</a>. My research interest is in <b>generative models</b>, <b>cross-view synthesis</b>, and <b>computer assisted interventions</b>.
+      I am a 4th year computer science Ph.D. student at the <a href="https://myuvm.uvm.edu/" target="_blank" rel="noreferrer" className="text-slate-800 hover:underline">University of Vermont</a>, working with <a href="https://www.wshahaigroup.com/" target="_blank" rel="noreferrer" className="text-slate-800 hover:underline">Prof. Safwan Wshah</a>. My research interest is in <b>generative models</b> and <b>computer assisted interventions</b>.
     </span>
   ),
   bio_secondary: (
     <span>
-      Right now I’m focusing on <b>multi-modal diffusion models</b>, finding ways to allow <b>unconditional joint generation</b> instead of the traditional conditional unimodal methods like text conditioning. At the same time, I’m working on medical imaging applications, particularly in <b>computer assisted interventions</b>. I got hooked on optimizing fluoroscopy control and autonomously guiding C-arms and biplanes, mainly for neurointerventions.
+      I work on <b>multi-modal diffusion models</b>, finding ways to allow coherent <b>joint generation</b>. I also do applied research in automating intraoperative X-ray systems like biplanes and C-arms. I bridge the gap between computer vision research and clinical practice.
     </span>
   ),
   links: {
